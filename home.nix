@@ -21,6 +21,7 @@
 
   systemd.user.sessionVariables = {
     GTK_THEME = "Dracula:dark";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   # Packages that should be installed to the user profile.
@@ -68,9 +69,11 @@
     # hyprland
     dracula-theme
     nwg-bar
+    nwg-displays
     nwg-drawer
     nwg-panel
     waybar
+    wlr-randr
     wofi
 
     # terminal
