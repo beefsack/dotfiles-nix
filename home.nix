@@ -20,7 +20,9 @@
   # '';
 
   systemd.user.sessionVariables = {
+    EDITOR = "nvim";
     GTK_THEME = "Dracula:dark";
+    NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
@@ -231,6 +233,7 @@
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       vscodevim.vim
+      bbenoist.nix
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "gitless";
