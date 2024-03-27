@@ -79,6 +79,12 @@
     go
     nodejs_21
     rustup
+
+    # productivity
+    libreoffice-fresh
+
+    # games
+    sgt-puzzles
   ];
 
   # basic configuration of git, please change to your own
