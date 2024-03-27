@@ -4,21 +4,6 @@
   home.username = "beefsack";
   home.homeDirectory = "/home/beefsack";
 
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
   systemd.user.sessionVariables = {
     EDITOR = "nvim";
     GTK_THEME = "Dracula:dark";
@@ -86,22 +71,14 @@
 
     # editors
     neovim
-    # (vscode-with-extensions.override {
-    #   vscodeExtensions = with vscode-extensions; [
-    #     vscodevim.vim
-    #     dracula-theme.theme-dracula
-    #   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    #     {
-    #       name = "gitless";
-    #       publisher = "maattdd";
-    #       version = "11.7.2";
-    #       sha256 = "rYeZNBz6HeZ059ksChGsXbuOao9H5m5lHGXJ4ELs6xc=";
-    #     }
-    #   ];
-    # })
 
     # internet
     firefox
+
+    # programming
+    go
+    nodejs_21
+    rustup
   ];
 
   # basic configuration of git, please change to your own
@@ -232,9 +209,10 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      vscodevim.vim
       bbenoist.nix
+      dracula-theme.theme-dracula
+      rust-lang.rust-analyzer
+      vscodevim.vim
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "gitless";
