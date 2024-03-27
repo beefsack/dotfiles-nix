@@ -86,7 +86,7 @@
   users.users.beefsack = {
     isNormalUser = true;
     description = "Michael Alexander";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     shell = pkgs.fish;
   };
 
@@ -99,9 +99,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
-    neovim
     git
+    neovim
+    wirelesstools
   ];
+  programs.light.enable = true; # light control
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

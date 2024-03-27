@@ -59,6 +59,7 @@
     nwg-displays
     nwg-drawer
     nwg-panel
+    playerctl # media player controls
     waybar
     wlr-randr
     wofi
