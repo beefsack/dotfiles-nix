@@ -249,6 +249,10 @@
       "workbench.colorTheme" = "Dracula";
       "vim.useSystemClipboard" = true;
       "window.titleBarStyle" = "custom";
+      "editor.fontFamily" = "SauceCodePro Nerd Font Mono";
+      "editor.fontWeight" = 500;
+      "editor.fontSize" = 16;
+      "editor.rulers" = [80];
     };
   };
 
