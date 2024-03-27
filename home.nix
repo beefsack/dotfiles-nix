@@ -130,6 +130,7 @@
     enable = true;
     settings = {
       monitor = ",preferred,auto,auto";
+      source = "~/.config/hypr/monitors.conf";
       "$mod" = "SUPER";
       "exec-once" = [
         "nwg-panel"
