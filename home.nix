@@ -32,6 +32,7 @@
     gnupg
     gnused
     gnutar
+    pv
     tree
     which
     zstd
