@@ -30,7 +30,10 @@
   services.xserver.enable = true;
 
   # Enable SDDM login manager
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
   # hyprland
   programs.hyprland.enable = true;
