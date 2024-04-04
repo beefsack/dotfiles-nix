@@ -56,6 +56,9 @@
     jack.enable = true;
   };
 
+  # Polkit for elevating privs
+  security.polkit.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -77,6 +80,7 @@
   environment.systemPackages = with pkgs; [
     firefox
     git
+    lxqt.lxqt-policykit # for policykit agent
     neovim
     pulseaudio
     wirelesstools

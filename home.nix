@@ -6,13 +6,11 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    GBM_BACKEND = "nvidia-drm";
     GTK_THEME = "Dracula:dark";
     LIBVA_DRIVER_NAME = "nvidia" ;
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
     XDG_SESSION_TYPE = "wayland";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   # Packages that should be installed to the user profile.
@@ -31,12 +29,14 @@
     dnsutils
 
     # misc
+    discord
     file
     gawk
     gnupg
     gnused
     gnutar
     pv
+    redshift
     tree
     which
     zstd
@@ -60,33 +60,12 @@
 
     # hyprland
     dracula-theme
-
-    # nwg-shell
-    nwg-bar
+    networkmanagerapplet
+    swaynotificationcenter
     nwg-displays
     nwg-drawer
-    nwg-panel
-
-    # nwg-panel deps
-    bluez-tools
-    gtk-layer-shell
-    gtk3
-    libappindicator-gtk3
-    playerctl
-    swaynotificationcenter
     wlr-randr
-
-    # nwg-panel python deps
-    (python3.withPackages (python-pkgs: [
-      python-pkgs.dasbus
-      # python-pkgs.gobject
-      python-pkgs.i3ipc
-      python-pkgs.netifaces
-      python-pkgs.psutil
-      python-pkgs.requests
-      python-pkgs.setuptools
-      python-pkgs.wheel
-    ]))
+    xdg-desktop-portal-hyprland
 
     # terminal
     kitty-themes
@@ -140,6 +119,18 @@
   home.file.".config/fish/conf.d/greeting.fish".source = .config/fish/conf.d/greeting.fish;
   home.file.".config/fish/conf.d/starship.fish".source = .config/fish/conf.d/starship.fish;
 
+  # waybar
+  programs.waybar = {
+    enable = true;
+    settings = [{
+      layer = "top";
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "clock" ];
+      modules-right = [ "pulseaudio" "backlight" "battery" "tray" ];
+    }];
+    style = .config/waybar/style.css;
+  };
+
   # hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -148,7 +139,10 @@
       source = "~/.config/hypr/monitors.conf";
       "$mod" = "SUPER";
       "exec-once" = [
-        "nwg-panel"
+        "lxqt-policykit-agent"
+        "swaync"
+        "nm-applet --indicator"
+        "waybar"
       ];
       misc = {
         force_default_wallpaper = "0";
@@ -241,7 +235,6 @@
       windowrulev2 = "bordercolor rgb(ff5555),xwayland:1 # check if window is xwayland";
     };
   };
-  home.file.".config/nwg-panel/config".source = .config/nwg-panel/config;
 
   # vscode
   programs.vscode = {
@@ -269,6 +262,9 @@
       "editor.fontWeight" = 500;
       "editor.fontSize" = 16;
       "editor.rulers" = [80];
+      "vim.handleKeys" = {
+        "<C-p>" = false;
+      };
     };
   };
 
