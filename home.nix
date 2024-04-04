@@ -4,11 +4,15 @@
   home.username = "beefsack";
   home.homeDirectory = "/home/beefsack";
 
-  systemd.user.sessionVariables = {
+  home.sessionVariables = {
     EDITOR = "nvim";
+    GBM_BACKEND = "nvidia-drm";
     GTK_THEME = "Dracula:dark";
+    LIBVA_DRIVER_NAME = "nvidia" ;
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
+    XDG_SESSION_TYPE = "wayland";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   # Packages that should be installed to the user profile.
@@ -56,20 +60,43 @@
 
     # hyprland
     dracula-theme
+
+    # nwg-shell
     nwg-bar
     nwg-displays
     nwg-drawer
     nwg-panel
-    playerctl # media player controls
-    waybar
+
+    # nwg-panel deps
+    bluez-tools
+    gtk-layer-shell
+    gtk3
+    libappindicator-gtk3
+    playerctl
+    swaynotificationcenter
     wlr-randr
-    wofi
+
+    # nwg-panel python deps
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.dasbus
+      # python-pkgs.gobject
+      python-pkgs.i3ipc
+      python-pkgs.netifaces
+      python-pkgs.psutil
+      python-pkgs.requests
+      python-pkgs.setuptools
+      python-pkgs.wheel
+    ]))
 
     # terminal
     kitty-themes
 
     # fonts
+    liberation_ttf
     nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
 
     # editors
     neovim

@@ -67,7 +67,8 @@
             "cmd": "systemctl -i poweroff"
           }
         ]
-      }
+      },
+      "output-switcher": true
     },
     "tray": {
       "root-css-name": "tray",
