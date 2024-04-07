@@ -12,9 +12,14 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, ... }: {
     nixosConfigurations = {
       beefsack-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,8 +34,14 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
 
-            home-manager.users.beefsack = import ./home.nix;
+            home-manager.users.beefsack = {
+              imports = [
+                hyprland.homeManagerModules.default
+                ./home.nix
+              ];
+            };
           }
         ];
       };
@@ -47,8 +58,14 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
 
-            home-manager.users.beefsack = import ./home.nix;
+            home-manager.users.beefsack = {
+              imports = [
+                hyprland.homeManagerModules.default
+                ./home.nix
+              ];
+            };
           }
         ];
       };
@@ -65,8 +82,14 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
 
-            home-manager.users.beefsack = import ./home.nix;
+            home-manager.users.beefsack = {
+              imports = [
+                hyprland.homeManagerModules.default
+                ./home.nix
+              ];
+            };
           }
         ];
       };
