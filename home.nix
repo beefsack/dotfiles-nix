@@ -242,17 +242,17 @@
       ];
 
       general = {
-        "col.active_border" = "rgb(44475a) rgb(bd93f9) 90deg";
+        "col.active_border" = "rgb(bd93f9)";
         "col.inactive_border" = "rgba(44475aaa)";
         "col.nogroup_border" = "rgba(282a36dd)";
-        "col.nogroup_border_active" = "rgb(bd93f9) rgb(44475a) 90deg";
+        "col.nogroup_border_active" = "rgb(bd93f9)";
         no_border_on_floating = "false";
         border_size = "2";
         gaps_in = "3";
-        gaps_out = "10";
+        gaps_out = "5";
       };
       decoration = {
-        rounding = "6";
+        rounding = "4";
         "col.shadow" = "rgba(1E202966)";
         drop_shadow = "yes";
         shadow_range = "60";
@@ -262,7 +262,7 @@
       };
       group = {
         groupbar = {
-          "col.active" = "rgb(bd93f9) rgb(44475a) 90deg";
+          "col.active" = "rgb(bd93f9)";
           "col.inactive" = "rgba(282a36dd)";
         };
       };
