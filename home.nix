@@ -158,6 +158,9 @@
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
       modules-right = [ "pulseaudio" "backlight" "battery" "tray" ];
+      clock = {
+        format = "{:%a %b %d %H:%M}";
+      };
     }];
     style = .config/waybar/style.css;
   };
