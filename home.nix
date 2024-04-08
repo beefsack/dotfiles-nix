@@ -299,6 +299,11 @@
       "vim.handleKeys" = {
         "<C-p>" = false;
       };
+      "[rust]" = {
+        "editor.rulers" = [120];
+        "editor.formatOnSave" = true;
+      };
+      "update.mode" = "none";
     };
   };
 
