@@ -29,11 +29,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable SDDM login manager
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+  # Enable GDM login manager
+  services.xserver.displayManager.gdm.enable = true;
 
   # hyprland
   programs.hyprland.enable = true;
