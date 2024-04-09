@@ -15,11 +15,30 @@
     settings = {
       # Allow fractional scaling
       "org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
+      # Mouse settings
+      "org/gnome/desktop/peripherals/mouse" = {
+        "accel-profile" = "flat";
+      };
+      "org/gnome/desktop/session" = {
+        # Don't turn monitor off
+        idle-delay = 0;
+      };
+      "org/gnome/settings-daemon/plugins/power" = {
+        # Don't automatically suspend on AC
+        sleep-inactive-ac-type = "nothing";
+        # Suspend after an hour on battery
+        sleep-inactive-battery-type = "suspend";
+        sleep-inactive-battery-timeout = 3600;
+        # Power button does nothing
+        power-button-action = "nothing";
+        # Don't dim screen
+        idle-dim = false;
+      };
       # Favourite apps
       "org/gnome/shell" = {
         favorite-apps = [
-          "firefox.desktop"
           "code.desktop"
+          "firefox.desktop"
           "kitty.desktop"
           "org.gnome.Nautilus.desktop"
         ];
@@ -107,7 +126,10 @@
       "org/gnome/settings-daemon/plugins/media-keys".www = ["<Super>w"];
     };
   };
-  home.file.".config/forge/stylesheet/forge/stylesheet.css".source = .config/forge/stylesheet/forge/stylesheet.css;
+  home.file.".config/forge/stylesheet/forge/stylesheet.css" = {
+    source = .config/forge/stylesheet/forge/stylesheet.css;
+    recursive = true;
+  };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
