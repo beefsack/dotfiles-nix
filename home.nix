@@ -7,6 +7,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     GTK_THEME = "Dracula:dark";
+    NIXOS_OZONE_WL = 1;
   };
 
   dconf = {
