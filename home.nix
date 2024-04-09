@@ -125,8 +125,12 @@
         "command" = "kitty";
         "name" = "Kitty";
       };
-      # Firefox launch bind
-      "org/gnome/settings-daemon/plugins/media-keys".www = ["<Super>w"];
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        # Firefox launch bind
+        www = ["<Super>w"];
+        # Files launch bind
+        home = ["<Super>e"];
+      };
     };
   };
   home.file.".config/forge/stylesheet/forge/stylesheet.css" = {
