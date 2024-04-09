@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "beefsack";
@@ -7,14 +7,136 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     GTK_THEME = "Dracula:dark";
-    LIBVA_DRIVER_NAME = "nvidia" ;
-    NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    XDG_SESSION_TYPE = "wayland";
+  };
+
+  dconf = {
+    enable = true;
+    settings = {
+      # Allow fractional scaling
+      "org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
+      # Favourite apps
+      "org/gnome/shell" = {
+        favorite-apps = [
+          "firefox.desktop"
+          "code.desktop"
+          "kitty.desktop"
+          "org.gnome.Nautilus.desktop"
+        ];
+        disable-user-extensions = false;
+        enabled-extensions = [
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+          "forge@jmmaranan.com"
+        ];
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        workspace-names = [ "Main" ];
+      };
+      "org/gnome/desktop/background" = {
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png";
+        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
+      };
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
+        primary-color = "#3465a4";
+        secondary-color = "#000000";
+      };
+      "org/gnome/shell/extensions/forge" = {
+        dnd-center-layout = "stacked";
+        window-gap-size = 3;
+      };
+      # Keybindings
+      "org/gnome/shell/extensions/forge/keybindings" = {
+        "window-focus-down" = ["<Super>Down"];
+        "window-focus-left" = ["<Super>Left"];
+        "window-focus-right" = ["<Super>Right"];
+        "window-focus-up" = ["<Super>Up"];
+        "window-move-down" = ["<Shift><Super>Down"];
+        "window-move-left" = ["<Shift><Super>Left"];
+        "window-move-right" = ["<Shift><Super>Right"];
+        "window-move-up" = ["<Shift><Super>Up"];
+        # Disable prefs toggle as it conflicts with kitty
+        "prefs-tiling-toggle" = [];
+      };
+      "org/gnome/mutter/keybindings" = {
+        # Disable super left and right as we use that for focus
+        toggle-tiled-left = [];
+        toggle-tiled-right = [];
+      };
+      "org/gnome/desktop/wm/keybindings" = {
+        # Disable super and arrows as we need them
+        unmaximize = [];
+        maximize = [];
+        move-to-monitor-down = [];
+        move-to-monitor-left = [];
+        move-to-monitor-right = [];
+        move-to-monitor-up = [];
+        switch-to-workspace-1 = ["<Super>1"];
+        switch-to-workspace-2 = ["<Super>2"];
+        switch-to-workspace-3 = ["<Super>3"];
+        switch-to-workspace-4 = ["<Super>4"];
+        move-to-workspace-1 = ["<Shift><Super>1"];
+        move-to-workspace-2 = ["<Shift><Super>2"];
+        move-to-workspace-3 = ["<Shift><Super>3"];
+        move-to-workspace-4 = ["<Shift><Super>4"];
+      };
+      "org/gnome/shell/keybindings" = {
+        # Disable super and numbers as we need them for workspace switching
+        switch-to-application-1 = [];
+        switch-to-application-2 = [];
+        switch-to-application-3 = [];
+        switch-to-application-4 = [];
+      };
+      # Kitty launch keybind
+      "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        "binding" = "<Super>t";
+        "command" = "kitty";
+        "name" = "Kitty";
+      };
+      # Firefox launch bind
+      "org/gnome/settings-daemon/plugins/media-keys".www = ["<Super>w"];
+    };
+  };
+  home.file.".config/forge/stylesheet/forge/stylesheet.css".source = .config/forge/stylesheet/forge/stylesheet.css;
+
+  # ...
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
+    };
+
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
   };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    # gnome
+    gnomeExtensions.forge
+
     # archives
     p7zip
     unzip
@@ -58,14 +180,8 @@
     pciutils
     usbutils
 
-    # hyprland
+    # theme
     dracula-theme
-    networkmanagerapplet
-    swaynotificationcenter
-    nwg-displays
-    nwg-drawer
-    wlr-randr
-    xdg-desktop-portal-hyprland
 
     # terminal
     kitty-themes
@@ -94,22 +210,6 @@
     # games
     sgt-puzzles
 
-    # gnome apps
-    gnome.atomix # puzzle game
-    gnome.cheese # webcam tool
-    gnome.epiphany # web browser
-    gnome.evince # document viewer
-    gnome.geary # email reader
-    gnome.gedit # text editor
-    gnome.gnome-characters
-    gnome.gnome-music
-    gnome.gnome-terminal
-    gnome.hitori # sudoku game
-    gnome.iagno # go game
-    gnome.nautilus
-    gnome.tali # poker game
-    gnome.totem # video player
-
     # video
     ffmpeg
     # Video/Audio data composition framework tools like "gst-inspect", "gst-launch" ...
@@ -124,9 +224,6 @@
     gst_all_1.gst-libav
     # Support the Video Audio (Hardware) Acceleration API
     gst_all_1.gst-vaapi
-
-    # sound
-    pavucontrol
   ];
 
   # basic configuration of git, please change to your own
@@ -149,126 +246,6 @@
   programs.starship.enable = true;
   home.file.".config/fish/conf.d/greeting.fish".source = .config/fish/conf.d/greeting.fish;
   home.file.".config/fish/conf.d/starship.fish".source = .config/fish/conf.d/starship.fish;
-
-  # waybar
-  programs.waybar = {
-    enable = true;
-    settings = [{
-      layer = "top";
-      modules-left = [ "hyprland/workspaces" ];
-      modules-center = [ "clock" ];
-      modules-right = [ "pulseaudio" "backlight" "battery" "tray" ];
-      clock = {
-        format = "{:%a %b %d %H:%M}";
-      };
-    }];
-    style = .config/waybar/style.css;
-  };
-
-  # hyprland
-  wayland.windowManager.hyprland = {
-    enable = true;
-    settings = {
-      monitor = ",preferred,auto,auto";
-      source = "~/.config/hypr/monitors.conf";
-      "$mod" = "SUPER";
-      "exec-once" = [
-        "lxqt-policykit-agent"
-        "swaync"
-        "nm-applet --indicator"
-        "waybar"
-      ];
-      misc = {
-        force_default_wallpaper = "0";
-      };
-      input = {
-        kb_layout = "us";
-        follow_mouse = "2";
-        touchpad = {
-          natural_scroll = "no";
-        };
-        accel_profile = "flat";
-      };
-      bind = [
-        "$mod, T, exec, kitty"
-        "$mod, W, exec, firefox"
-        "$mod, F, fullscreen, 0"
-        "$mod, C, killactive,"
-        "$mod, M, exit,"
-        "$mod, V, togglefloating,"
-        "$mod, P, pseudo,"
-        "$mod, J, togglesplit,"
-
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-        "$mod, 6, workspace, 6"
-        "$mod, 7, workspace, 7"
-        "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
-
-        "$mod SHIFT, 1, movetoworkspace, 1"
-        "$mod SHIFT, 2, movetoworkspace, 2"
-        "$mod SHIFT, 3, movetoworkspace, 3"
-        "$mod SHIFT, 4, movetoworkspace, 4"
-        "$mod SHIFT, 5, movetoworkspace, 5"
-        "$mod SHIFT, 6, movetoworkspace, 6"
-        "$mod SHIFT, 7, movetoworkspace, 7"
-        "$mod SHIFT, 8, movetoworkspace, 8"
-        "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 0, movetoworkspace, 10"
-
-        "$mod, S, togglespecialworkspace, magic"
-        "$mod SHIFT, S, movetoworkspace, special:magic"
-
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
-      ];
-
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-      bindr = [
-        "$mod, SUPER_L, exec, nwg-drawer"
-      ];
-
-      general = {
-        "col.active_border" = "rgb(bd93f9)";
-        "col.inactive_border" = "rgba(44475aaa)";
-        "col.nogroup_border" = "rgba(282a36dd)";
-        "col.nogroup_border_active" = "rgb(bd93f9)";
-        no_border_on_floating = "false";
-        border_size = "2";
-        gaps_in = "3";
-        gaps_out = "5";
-      };
-      decoration = {
-        rounding = "4";
-        "col.shadow" = "rgba(1E202966)";
-        drop_shadow = "yes";
-        shadow_range = "60";
-        shadow_offset = "1 2";
-        shadow_render_power = "3";
-        shadow_scale = "0.97";
-      };
-      group = {
-        groupbar = {
-          "col.active" = "rgb(bd93f9)";
-          "col.inactive" = "rgba(282a36dd)";
-        };
-      };
-      windowrulev2 = "bordercolor rgb(ff5555),xwayland:1 # check if window is xwayland";
-    };
-  };
 
   # vscode
   programs.vscode = {

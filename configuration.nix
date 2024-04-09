@@ -32,8 +32,10 @@
   # Enable GDM login manager
   services.xserver.displayManager.gdm.enable = true;
 
-  # hyprland
-  programs.hyprland.enable = true;
+  # gnome
+  services.xserver.desktopManager.gnome.enable = true;
+  # gnome system tray
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Configure keymap in X11
   services.xserver = {
@@ -75,9 +77,6 @@
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    # Use cached hyprland builds instead of building from scratch
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # List packages installed in system profile. To search, run:
@@ -85,12 +84,11 @@
   environment.systemPackages = with pkgs; [
     firefox
     git
-    lxqt.lxqt-policykit # for policykit agent
+    gnomeExtensions.appindicator
     neovim
     pulseaudio
     wirelesstools
   ];
-  programs.light.enable = true; # light control for nwg-panel
 
   # GVFS for mounting things like Android volumes
   services.gvfs.enable = true;
