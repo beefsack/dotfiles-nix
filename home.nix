@@ -58,6 +58,9 @@
         workspace-names = [ "Main" ];
         theme = "Dracula";
       };
+      "org/gnome/shell/extensions/user-theme" = {
+        name = "Dracula";
+      };
       "org/gnome/desktop/background" = {
         picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png";
         picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
