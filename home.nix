@@ -30,11 +30,14 @@
         ];
       };
       "org/gnome/desktop/interface" = {
+        gtk-theme = "Dracula";
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
+        icon-theme = "Dracula";
       };
       "org/gnome/desktop/wm/preferences" = {
         workspace-names = [ "Main" ];
+        theme = "Dracula";
       };
       "org/gnome/desktop/background" = {
         picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png";
@@ -106,36 +109,11 @@
   };
   home.file.".config/forge/stylesheet/forge/stylesheet.css".source = .config/forge/stylesheet/forge/stylesheet.css;
 
-  # ...
-  gtk = {
-    enable = true;
-
-    iconTheme = {
-      name = "Dracula";
-      package = pkgs.dracula-icon-theme;
-    };
-
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
-
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-  };
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # gnome
+    dracula-icon-theme
+    dracula-theme
     gnomeExtensions.forge
 
     # archives
@@ -180,9 +158,6 @@
     ethtool
     pciutils
     usbutils
-
-    # theme
-    dracula-theme
 
     # terminal
     kitty-themes
