@@ -62,13 +62,13 @@
         name = "Dracula";
       };
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.png";
-        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
+        picture-uri = "file:///home/beefsack/.config/wallpaper/nixos.png";
+        picture-uri-dark = "file:///home/beefsack/.config/wallpaper/nixos.png";
       };
       "org/gnome/desktop/screensaver" = {
-        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
-        primary-color = "#3465a4";
-        secondary-color = "#000000";
+        picture-uri = "file:///home/beefsack/.config/wallpaper/nixos.png";
+        primary-color = "#BD93F9";
+        secondary-color = "#282A36";
       };
       "org/gnome/shell/extensions/forge" = {
         dnd-center-layout = "stacked";
@@ -131,6 +131,10 @@
   };
   home.file.".config/forge/stylesheet/forge/stylesheet.css" = {
     source = .config/forge/stylesheet/forge/stylesheet.css;
+    recursive = true;
+  };
+  home.file.".config/wallpaper/nixos.png" = {
+    source = .config/wallpaper/nixos.png;
     recursive = true;
   };
 
@@ -242,6 +246,9 @@
     font = {
       name = "SauceCodePro Nerd Font Mono";
       size = 13;
+    };
+    settings = {
+      hide_window_decorations = "yes";
     };
   };
   programs.starship.enable = true;
