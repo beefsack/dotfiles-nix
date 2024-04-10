@@ -68,7 +68,12 @@
   users.users.beefsack = {
     isNormalUser = true;
     description = "Michael Alexander";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "video"
+      "wheel"
+    ];
     shell = pkgs.fish;
   };
 
@@ -92,6 +97,12 @@
 
   # GVFS for mounting things like Android volumes
   services.gvfs.enable = true;
+
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
