@@ -265,6 +265,8 @@
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       dracula-theme.theme-dracula
+      golang.go
+      ms-azuretools.vscode-docker
       rust-lang.rust-analyzer
       vscodevim.vim
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
