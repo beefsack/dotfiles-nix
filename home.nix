@@ -209,6 +209,7 @@
     firefox
 
     # programming
+    devenv
     go
     nodejs_21
     rustup
