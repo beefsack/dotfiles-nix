@@ -269,6 +269,7 @@
       bbenoist.nix
       dracula-theme.theme-dracula
       golang.go
+      mkhl.direnv
       ms-azuretools.vscode-docker
       rust-lang.rust-analyzer
       vscodevim.vim
