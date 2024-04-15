@@ -82,6 +82,8 @@
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    # Add user to trusted users for devenv
+    trusted-users = [ "root" "beefsack" ];
   };
 
   # List packages installed in system profile. To search, run:
