@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "beefsack";
@@ -21,7 +21,8 @@
       };
       "org/gnome/desktop/session" = {
         # Don't turn monitor off
-        idle-delay = 0;
+        idle-delay = lib.hm.gvariant.mkUint32 0;
+
       };
       "org/gnome/settings-daemon/plugins/power" = {
         # Don't automatically suspend on AC
