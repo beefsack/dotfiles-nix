@@ -212,9 +212,7 @@
     # programming
     devenv
     gcc
-    go
-    nodejs_22
-    rustup
+    mise
 
     # productivity
     libreoffice-fresh
@@ -261,6 +259,7 @@
   programs.starship.enable = true;
   home.file.".config/fish/conf.d/greeting.fish".source = .config/fish/conf.d/greeting.fish;
   home.file.".config/fish/conf.d/starship.fish".source = .config/fish/conf.d/starship.fish;
+  home.file.".config/fish/conf.d/mise.fish".source = .config/fish/conf.d/mise.fish;
 
   # vscode
   programs.vscode = {
