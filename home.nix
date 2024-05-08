@@ -74,6 +74,7 @@
       "org/gnome/shell/extensions/forge" = {
         dnd-center-layout = "stacked";
         window-gap-size = 3;
+        move-pointer-focus-enabled = false;
       };
       # Keybindings
       "org/gnome/shell/extensions/forge/keybindings" = {
