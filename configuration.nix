@@ -64,8 +64,14 @@
   # Polkit for elevating privs
   security.polkit.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Update microcode on both intel and AMD
+  hardware.cpu = {
+    amd.updateMicrocode = true;
+    intel.updateMicrocode = true;
+  };
+
+  # Enable touchpad support
+  services.libinput.enable = true;
 
   programs.fish.enable = true;
   users.users.beefsack = {
