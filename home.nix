@@ -19,6 +19,9 @@
       "org/gnome/desktop/peripherals/mouse" = {
         "accel-profile" = "flat";
       };
+      "org/gnome/desktop/peripherals/touchpad" = {
+        "natural-scroll" = false;
+      };
       "org/gnome/desktop/session" = {
         # Don't turn monitor off
         idle-delay = lib.hm.gvariant.mkUint32 0;
