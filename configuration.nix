@@ -94,6 +94,8 @@
     experimental-features = [ "nix-command" "flakes" ];
     # Add user to trusted users for devenv
     trusted-users = [ "root" "beefsack" ];
+    # Automatically optimise the data store on a regular basis
+    auto-optimise-store = true;
   };
 
   # List packages installed in system profile. To search, run:
