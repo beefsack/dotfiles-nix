@@ -215,6 +215,7 @@
 
     # programming
     devenv
+    direnv
     gcc
 
     # productivity
@@ -262,6 +263,7 @@
   programs.starship.enable = true;
   home.file.".config/fish/conf.d/greeting.fish".source = .config/fish/conf.d/greeting.fish;
   home.file.".config/fish/conf.d/starship.fish".source = .config/fish/conf.d/starship.fish;
+  home.file.".config/fish/conf.d/direnv.fish".source = .config/fish/conf.d/direnv.fish;
 
   # vscode
   programs.vscode = {
@@ -270,6 +272,7 @@
       bbenoist.nix
       dracula-theme.theme-dracula
       golang.go
+      mkhl.direnv
       ms-azuretools.vscode-docker
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
