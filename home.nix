@@ -211,6 +211,7 @@
     neovim
 
     # internet
+    chromium
     firefox
 
     # programming
