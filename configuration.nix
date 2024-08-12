@@ -33,14 +33,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable GDM login manager
-  services.xserver.displayManager.gdm.enable = true;
-
-  # gnome
-  services.xserver.desktopManager.gnome.enable = true;
-  # gnome system tray
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -102,7 +94,6 @@
   environment.systemPackages = with pkgs; [
     firefox
     git
-    gnomeExtensions.appindicator
     neovim
     pulseaudio
     wirelesstools
@@ -122,6 +113,7 @@
 
   # Cosmic DE
   services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
