@@ -289,7 +289,7 @@
     userSettings = {
       "telemetry.telemetryLevel" = "off";
       "workbench.startupEditor" = "none";
-      "workbench.colorTheme" = "Dracula";
+      "workbench.colorTheme" = "Dracula Theme";
       "vim.useSystemClipboard" = true;
       "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "SauceCodePro Nerd Font Mono";
