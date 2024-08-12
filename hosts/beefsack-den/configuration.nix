@@ -39,4 +39,6 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 }

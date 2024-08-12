@@ -12,9 +12,14 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Cosmic DE
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-cosmic, ... }: {
     nixosConfigurations = {
       beefsack-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -32,6 +37,13 @@
 
             home-manager.users.beefsack = import ./home.nix;
           }
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
         ];
       };
       beefsack-den = nixpkgs.lib.nixosSystem {
@@ -50,6 +62,13 @@
 
             home-manager.users.beefsack = import ./home.nix;
           }
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
         ];
       };
       beefsack-usb = nixpkgs.lib.nixosSystem {
@@ -68,6 +87,13 @@
 
             home-manager.users.beefsack = import ./home.nix;
           }
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
         ];
       };
     };
