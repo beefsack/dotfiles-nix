@@ -13,9 +13,16 @@
     source = .config/wallpaper/nixos.png;
     recursive = true;
   };
+  home.file.".config/cosmic/theme.ron" = {
+    source = .config/cosmic/theme.ron;
+    recursive = true;
+  };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    # theme
+    dracula-theme
+
     # archives
     p7zip
     unzip
