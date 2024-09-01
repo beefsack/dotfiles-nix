@@ -17,9 +17,12 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nix-index
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixos-cosmic, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-cosmic, nix-index-database, ... }: {
     nixosConfigurations = {
       beefsack-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -44,6 +47,8 @@
             };
           }
           nixos-cosmic.nixosModules.default
+          nix-index-database.nixosModules.nix-index
+          { programs.nix-index-database.comma.enable = true; }
         ];
       };
       beefsack-den = nixpkgs.lib.nixosSystem {
@@ -69,6 +74,8 @@
             };
           }
           nixos-cosmic.nixosModules.default
+          nix-index-database.nixosModules.nix-index
+          { programs.nix-index-database.comma.enable = true; }
         ];
       };
       beefsack-usb = nixpkgs.lib.nixosSystem {
@@ -94,6 +101,8 @@
             };
           }
           nixos-cosmic.nixosModules.default
+          nix-index-database.nixosModules.nix-index
+          { programs.nix-index-database.comma.enable = true; }
         ];
       };
     };
