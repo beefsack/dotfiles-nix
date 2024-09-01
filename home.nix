@@ -30,6 +30,7 @@
     zip
 
     # utils
+    comma
     jq
     ripgrep
 
