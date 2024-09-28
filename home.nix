@@ -121,7 +121,7 @@
   programs.fish.enable = true;
   programs.kitty = {
     enable = true;
-    theme = "Dracula";
+    themeFile = "Dracula";
     font = {
       name = "SauceCodePro Nerd Font Mono";
       size = 13;
