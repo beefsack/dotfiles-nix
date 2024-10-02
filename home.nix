@@ -140,6 +140,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
+      dart-code.flutter
       dracula-theme.theme-dracula
       golang.go
       mkhl.direnv
