@@ -174,6 +174,11 @@
         "editor.formatOnSave" = true;
       };
       "update.mode" = "none";
+      "[dart]" = {
+        "editor.formatOnSave" = true;
+        "editor.formatOnType" = true;
+        "editor.selectionHighlight" = false;
+      };
     };
   };
 
