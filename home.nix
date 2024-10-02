@@ -142,6 +142,7 @@
       bbenoist.nix
       dart-code.flutter
       dracula-theme.theme-dracula
+      github.copilot
       golang.go
       mkhl.direnv
       ms-azuretools.vscode-docker
