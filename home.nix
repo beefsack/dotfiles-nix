@@ -84,6 +84,7 @@
     firefox
 
     # programming
+    code-cursor
     devenv
     direnv
     gcc
