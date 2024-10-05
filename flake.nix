@@ -22,89 +22,51 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixos-cosmic, nix-index-database, ... }: {
-    nixosConfigurations = {
-      beefsack-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          ./hosts/beefsack-laptop/hardware-configuration.nix
-          ./hosts/beefsack-laptop/configuration.nix
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixos-cosmic,
+      nix-index-database,
+      ...
+    }:
+    let
+      # Common modules for all hosts
+      commonModules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.beefsack = import ./home.nix;
+        }
+        {
+          nix.settings = {
+            substituters = [ "https://cosmic.cachix.org/" ];
+            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+          };
+        }
+        nixos-cosmic.nixosModules.default
+        nix-index-database.nixosModules.nix-index
+        { programs.nix-index-database.comma.enable = true; }
+      ];
 
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.beefsack = import ./home.nix;
-          }
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
-          nix-index-database.nixosModules.nix-index
-          { programs.nix-index-database.comma.enable = true; }
-        ];
-      };
-      beefsack-den = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          ./hosts/beefsack-den/hardware-configuration.nix
-          ./hosts/beefsack-den/configuration.nix
-
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.beefsack = import ./home.nix;
-          }
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
-          nix-index-database.nixosModules.nix-index
-          { programs.nix-index-database.comma.enable = true; }
-        ];
-      };
-      beefsack-usb = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          ./hosts/beefsack-usb/hardware-configuration.nix
-          ./hosts/beefsack-usb/configuration.nix
-
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.beefsack = import ./home.nix;
-          }
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
-          nix-index-database.nixosModules.nix-index
-          { programs.nix-index-database.comma.enable = true; }
-        ];
+      # Function to create a NixOS configuration for a host
+      mkHost =
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = commonModules ++ [
+            ./hosts/${hostname}/hardware-configuration.nix
+            ./hosts/${hostname}/configuration.nix
+          ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        beefsack-laptop = mkHost "beefsack-laptop";
+        beefsack-den = mkHost "beefsack-den";
+        beefsack-usb = mkHost "beefsack-usb";
       };
     };
-  };
 }
