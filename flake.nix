@@ -13,10 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Cosmic DE
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # nix-index
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +38,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.beefsack = import ./home.nix;
         }
+        # Cosmic
         {
           nix.settings = {
             substituters = [ "https://cosmic.cachix.org/" ];
@@ -47,6 +46,7 @@
           };
         }
         nixos-cosmic.nixosModules.default
+        # Index & comma
         nix-index-database.nixosModules.nix-index
         { programs.nix-index-database.comma.enable = true; }
       ];
