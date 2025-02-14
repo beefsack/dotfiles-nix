@@ -4,28 +4,19 @@
   # vscode
   programs.vscode = {
     enable = true;
-    extensions =
-      with pkgs.vscode-extensions;
-      [
-        dart-code.flutter
-        dracula-theme.theme-dracula
-        github.copilot
-        golang.go
-        jnoortheen.nix-ide
-        mkhl.direnv
-        ms-azuretools.vscode-docker
-        rust-lang.rust-analyzer
-        tamasfe.even-better-toml
-        vscodevim.vim
-      ]
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "gitless";
-          publisher = "maattdd";
-          version = "11.7.2";
-          sha256 = "rYeZNBz6HeZ059ksChGsXbuOao9H5m5lHGXJ4ELs6xc=";
-        }
-      ];
+    extensions = with pkgs.vscode-extensions; [
+      dart-code.flutter
+      dracula-theme.theme-dracula
+      eamodio.gitlens
+      github.copilot
+      golang.go
+      jnoortheen.nix-ide
+      mkhl.direnv
+      ms-azuretools.vscode-docker
+      rust-lang.rust-analyzer
+      tamasfe.even-better-toml
+      vscodevim.vim
+    ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
       "workbench.startupEditor" = "none";
