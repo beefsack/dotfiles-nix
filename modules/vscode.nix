@@ -13,7 +13,7 @@
       jnoortheen.nix-ide
       mkhl.direnv
       ms-azuretools.vscode-docker
-      rust-lang.rust-analyzer
+      #rust-lang.rust-analyzer
       tamasfe.even-better-toml
       vscodevim.vim
     ];
