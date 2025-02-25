@@ -6,6 +6,7 @@
     ./modules/git.nix
     ./modules/terminal.nix
     ./modules/vscode.nix
+    ./modules/zed-editor.nix
   ];
 
   home.username = "beefsack";

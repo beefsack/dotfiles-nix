@@ -71,7 +71,6 @@
     devenv
     direnv
     gcc
-    zed-editor
 
     # productivity
     libreoffice-fresh
