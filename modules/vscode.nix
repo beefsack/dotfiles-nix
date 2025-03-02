@@ -41,6 +41,7 @@
           "editor.formatOnType" = true;
           "editor.selectionHighlight" = false;
         };
+        "rust-analyzer.check.command" = "clippy";
       };
     };
   };
