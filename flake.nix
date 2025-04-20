@@ -64,7 +64,6 @@
     in
     {
       nixosConfigurations = {
-        beefsack-laptop = mkHost "beefsack-laptop";
         beefsack-den = mkHost "beefsack-den";
         beefsack-house = mkHost "beefsack-house";
         beefsack-usb = mkHost "beefsack-usb";
