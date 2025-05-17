@@ -12,10 +12,6 @@
     xz
     zip
 
-    # utils
-    jq
-    ripgrep
-
     # networking tools
     dnsutils
 
@@ -27,15 +23,11 @@
     gnused
     gnutar
     pv
-    redshift
     tree
     which
     zstd
 
     # monitoring
-    btop
-    iftop
-    iotop
     lm_sensors
     sysstat
 
@@ -59,17 +51,8 @@
     noto-fonts-cjk-sans
     noto-fonts-emoji
 
-    # editors
-    neovim
-
-    # internet
-    chromium
-    firefox
-
     # programming
-    code-cursor
     devenv
-    direnv
     gcc
 
     # productivity
@@ -93,4 +76,18 @@
     # Support the Video Audio (Hardware) Acceleration API
     gst_all_1.gst-vaapi
   ];
+
+  programs.jq.enable = true;
+  programs.ripgrep.enable = true;
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "dracula";
+      theme_background = false;
+    };
+  };
+  programs.neovim.enable = true;
+  programs.chromium.enable = true;
+  programs.firefox.enable = true;
+  programs.direnv.enable = true;
 }
