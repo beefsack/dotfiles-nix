@@ -52,6 +52,8 @@
     noto-fonts-emoji
 
     # programming
+    android-studio
+    code-cursor
     devenv
     gcc
 
