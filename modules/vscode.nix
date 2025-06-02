@@ -15,6 +15,7 @@
         mkhl.direnv
         ms-azuretools.vscode-docker
         rust-lang.rust-analyzer
+        saoudrizwan.claude-dev
         tamasfe.even-better-toml
         vscodevim.vim
       ];
