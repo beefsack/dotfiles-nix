@@ -12,20 +12,12 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Cosmic DE
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    # nix-index
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      nixos-cosmic,
-      nix-index-database,
       ...
     }:
     let
@@ -39,17 +31,6 @@
           home-manager.users.beefsack = import ./home.nix;
           home-manager.backupFileExtension = "backup";
         }
-        # Cosmic
-        {
-          nix.settings = {
-            substituters = [ "https://cosmic.cachix.org/" ];
-            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-          };
-        }
-        nixos-cosmic.nixosModules.default
-        # Index & comma
-        nix-index-database.nixosModules.nix-index
-        { programs.nix-index-database.comma.enable = true; }
       ];
 
       # Function to create a NixOS configuration for a host
