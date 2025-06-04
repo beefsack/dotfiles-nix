@@ -1,5 +1,9 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, ... }:
 
 {
   languages.nix.enable = true;
+
+  packages = with pkgs; [
+    nixd
+  ];
 }
