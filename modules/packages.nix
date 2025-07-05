@@ -53,7 +53,6 @@
 
     # programming
     android-studio
-    claude-code
     code-cursor
     devenv
     gcc
