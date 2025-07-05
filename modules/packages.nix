@@ -53,9 +53,9 @@
 
     # programming
     android-studio
-    code-cursor
     devenv
     gcc
+    nodejs_20
 
     # productivity
     libreoffice-fresh
