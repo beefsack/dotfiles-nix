@@ -52,7 +52,6 @@
     noto-fonts-emoji
 
     # programming
-    android-studio
     devenv
     gcc
     nodejs_20
