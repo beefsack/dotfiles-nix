@@ -1,15 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  # Bootloader.
-  boot.loader.systemd-boot = {
+  # Lanzaboote currently replaces the systemd-boot module.
+  # This setting is usually set to true in configuration.nix
+  # generated at installation time. So we force it to false
+  # for now.
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  boot.lanzaboote = {
     enable = true;
+    pkiBundle = "/var/lib/sbctl";
     configurationLimit = 10;
   };
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    sb.enable = true;
-  };
+
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Enable networking
@@ -99,6 +102,7 @@
     git
     neovim
     pulseaudio
+    sbctl
     wirelesstools
   ];
 
