@@ -6,7 +6,10 @@
     enable = true;
     configurationLimit = 10;
   };
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+    sb.enable = true;
+  };
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Enable networking
