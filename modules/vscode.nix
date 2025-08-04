@@ -9,13 +9,11 @@
         dart-code.flutter
         dracula-theme.theme-dracula
         eamodio.gitlens
-        github.copilot
         golang.go
         jnoortheen.nix-ide
         mkhl.direnv
         ms-azuretools.vscode-docker
         rust-lang.rust-analyzer
-        saoudrizwan.claude-dev
         tamasfe.even-better-toml
         vscodevim.vim
       ];
