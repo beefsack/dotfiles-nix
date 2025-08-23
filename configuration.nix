@@ -101,7 +101,6 @@
     firefox
     git
     neovim
-    pulseaudio
     sbctl
     wirelesstools
   ];
