@@ -33,7 +33,7 @@
 
     # system call monitoring
     lsof
-    # ltrace # Temporarily disabled due to build failure
+    ltrace
     strace
 
     # system tools
@@ -60,7 +60,7 @@
     libreoffice-fresh
 
     # games
-    # sgt-puzzles # Temporarily disabled due to build failure
+    sgt-puzzles
 
     # video
     ffmpeg
