@@ -12,10 +12,15 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Temporary workaround for lanzaboote rust unpacking issue
+    # See: https://github.com/nix-community/lanzaboote/issues/485
+    # Can be removed once lanzaboote updates its rust-overlay dependency
+    rust-overlay.url = "github:oxalica/rust-overlay";
     # lanzaboote for secure boot support
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
   };
 
