@@ -85,6 +85,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    dracula-theme
     firefox
     git
     neovim
@@ -101,10 +102,12 @@
 
   programs.nix-ld.enable = true;
 
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
-
   services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "Dracula";
+  };
 
   programs.iftop.enable = true;
   programs.iotop.enable = true;

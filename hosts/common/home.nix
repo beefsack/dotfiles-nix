@@ -23,10 +23,6 @@
     source = ../../.config/wallpaper/nixos.png;
     recursive = true;
   };
-  home.file.".config/cosmic/theme.ron" = {
-    source = ../../.config/cosmic/theme.ron;
-    recursive = true;
-  };
 
   home.stateVersion = "23.11";
 
