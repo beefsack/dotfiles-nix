@@ -4,6 +4,7 @@
   imports = [
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/rgb.nix
   ];
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
