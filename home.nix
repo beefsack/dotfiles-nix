@@ -7,6 +7,7 @@
     ./modules/terminal.nix
     ./modules/vscode.nix
     ./modules/zed-editor.nix
+    ./modules/plasma.nix
   ];
 
   home.username = "beefsack";

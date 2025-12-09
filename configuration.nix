@@ -121,6 +121,9 @@
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
 
+  # KDE Plasma
+  services.desktopManager.plasma6.enable = true;
+
   # Other programs not available in home-manager
   programs.iftop.enable = true;
   programs.iotop.enable = true;

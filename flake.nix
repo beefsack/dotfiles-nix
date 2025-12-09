@@ -12,6 +12,11 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     # Temporary workaround for lanzaboote rust unpacking issue
     # See: https://github.com/nix-community/lanzaboote/issues/485
     # Can be removed once lanzaboote updates its rust-overlay dependency
@@ -29,6 +34,7 @@
       nixpkgs,
       home-manager,
       lanzaboote,
+      plasma-manager,
       ...
     }:
     let
@@ -43,6 +49,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.beefsack = import ./home.nix;
           home-manager.backupFileExtension = "backup";
+          home-manager.sharedModules = [
+            plasma-manager.homeModules.plasma-manager
+          ];
         }
       ];
 
