@@ -35,6 +35,7 @@
       # Common modules for all hosts
       commonModules = [
         ./configuration.nix
+        ./gaming.nix
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         {

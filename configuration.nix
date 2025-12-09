@@ -121,20 +121,6 @@
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
 
-  # Steam and gamescope
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
-  };
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-  hardware.xone.enable = true; # support for the xbox controller USB dongle
-
   # Other programs not available in home-manager
   programs.iftop.enable = true;
   programs.iotop.enable = true;
