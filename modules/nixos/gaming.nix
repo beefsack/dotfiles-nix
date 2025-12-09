@@ -1,13 +1,11 @@
 { pkgs, ... }:
 
 {
-  # 32-bit graphics for Steam/Wine
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 
-  # Xbox controller USB dongle support
   hardware.xone.enable = true;
 
   programs.steam = {
@@ -26,13 +24,11 @@
     capSysNice = true;
   };
 
-  # BPF scheduler for gaming workloads
   services.scx = {
     enable = true;
     scheduler = "scx_rusty";
   };
 
-  # Process priority for gaming and active windows
   services.ananicy = {
     enable = true;
     package = pkgs.ananicy-cpp;
@@ -50,8 +46,8 @@
   };
 
   boot.kernel.sysctl = {
-    "vm.swappiness" = 10; # Keep game data in RAM
-    "vm.vfs_cache_pressure" = 50; # Favor application memory
+    "vm.swappiness" = 10;
+    "vm.vfs_cache_pressure" = 50;
     "net.core.default_qdisc" = "cake";
     "net.ipv4.tcp_congestion_control" = "bbr";
   };

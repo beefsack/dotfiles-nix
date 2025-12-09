@@ -40,14 +40,12 @@
     let
       # Common modules for all hosts
       commonModules = [
-        ./configuration.nix
-        ./gaming.nix
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.beefsack = import ./home.nix;
+          home-manager.users.beefsack = import ./hosts/common/home.nix;
           home-manager.backupFileExtension = "backup";
           home-manager.sharedModules = [
             plasma-manager.homeModules.plasma-manager

@@ -19,7 +19,6 @@
     discord
     file
     gawk
-    gnupg
     gnused
     gnutar
     pv
@@ -78,6 +77,7 @@
     gst_all_1.gst-vaapi
   ];
 
+  programs.gpg.enable = true;
   programs.jq.enable = true;
   programs.ripgrep.enable = true;
   programs.btop = {

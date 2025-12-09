@@ -49,7 +49,7 @@
   };
 
   programs.starship.enable = true;
-  home.file.".config/fish/conf.d/greeting.fish".source = ../.config/fish/conf.d/greeting.fish;
-  home.file.".config/fish/conf.d/starship.fish".source = ../.config/fish/conf.d/starship.fish;
-  home.file.".config/fish/conf.d/direnv.fish".source = ../.config/fish/conf.d/direnv.fish;
+  home.file.".config/fish/conf.d/greeting.fish".source = ../../.config/fish/conf.d/greeting.fish;
+  home.file.".config/fish/conf.d/starship.fish".source = ../../.config/fish/conf.d/starship.fish;
+  home.file.".config/fish/conf.d/direnv.fish".source = ../../.config/fish/conf.d/direnv.fish;
 }

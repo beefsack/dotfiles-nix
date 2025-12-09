@@ -1,13 +1,17 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
-  networking.hostName = "beefsack-usb"; # Define your hostname.
+  imports = [
+    ./hardware-configuration.nix
+    ../common
+  ];
 
-  # Use volatile storage for journald to reduce disk access
-  environment.etc = {
-    "systemd/journald.conf.d/99-storage.conf".text = ''
-      [Journal]
-      Storage=volatile
-    '';
+  networking.hostName = "beefsack-usb";
+
+  systemd.services.systemd-journald.serviceConfig = {
+    Storage = "volatile";
+    RuntimeMaxUse = "30M";
   };
+
+  system.stateVersion = "23.11";
 }
