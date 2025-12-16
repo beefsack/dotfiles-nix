@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     # Temporary workaround for lanzaboote rust unpacking issue
     # See: https://github.com/nix-community/lanzaboote/issues/485
     # Can be removed once lanzaboote updates its rust-overlay dependency
@@ -35,6 +40,7 @@
       home-manager,
       lanzaboote,
       plasma-manager,
+      cosmic-manager,
       ...
     }:
     let
@@ -49,6 +55,7 @@
           home-manager.backupFileExtension = "backup";
           home-manager.sharedModules = [
             plasma-manager.homeModules.plasma-manager
+            cosmic-manager.homeManagerModules.default
           ];
         }
       ];

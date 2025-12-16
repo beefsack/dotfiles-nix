@@ -3,23 +3,11 @@
 {
   programs.fish.enable = true;
 
-  programs.kitty = {
-    enable = true;
-    themeFile = "Dracula";
-    font = {
-      name = "SauceCodePro Nerd Font Mono";
-      size = 13;
-    };
-    settings = {
-      hide_window_decorations = "yes";
-    };
-  };
-
   programs.ghostty = {
     enable = true;
     settings = {
-      font-family = "SauceCodePro Nerd Font Mono Medium";
-      font-size = 14;
+      font-family = "SauceCodePro NFM Medium";
+      font-size = 13;
       window-decoration = false;
       palette = [
         "0=#21222c"
