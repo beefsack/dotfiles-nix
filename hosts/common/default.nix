@@ -5,6 +5,8 @@
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/rgb.nix
+    ../../modules/nixos/displayManager/cosmic.nix
+    ../../modules/nixos/displayManager/plasma6.nix
   ];
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
@@ -15,7 +17,8 @@
     configurationLimit = 10;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Temporarily using 6.17 until NVIDIA drivers support 6.18
+  boot.kernelPackages = pkgs.linuxPackages_6_17;
 
   networking.networkmanager.enable = true;
 
@@ -101,13 +104,6 @@
   };
 
   programs.nix-ld.enable = true;
-
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "Dracula";
-  };
 
   programs.iftop.enable = true;
   programs.iotop.enable = true;

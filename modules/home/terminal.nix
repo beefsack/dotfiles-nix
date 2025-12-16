@@ -19,8 +19,8 @@
     enable = true;
     settings = {
       font-family = "SauceCodePro Nerd Font Mono Medium";
-      font-size = 12;
-
+      font-size = 14;
+      window-decoration = false;
       palette = [
         "0=#21222c"
         "1=#ff5555"
