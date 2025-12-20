@@ -22,10 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    antigravity-nix = {
-      url = "github:jacopone/antigravity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Temporary workaround for lanzaboote rust unpacking issue
     # See: https://github.com/nix-community/lanzaboote/issues/485
     # Can be removed once lanzaboote updates its rust-overlay dependency
@@ -45,7 +41,6 @@
       lanzaboote,
       plasma-manager,
       cosmic-manager,
-      antigravity-nix,
       ...
     }:
     let
@@ -63,7 +58,6 @@
             cosmic-manager.homeManagerModules.default
           ];
           home-manager.extraSpecialArgs = {
-            inherit antigravity-nix;
           };
         }
       ];
@@ -72,7 +66,6 @@
       mkHost =
         hostname:
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           modules = commonModules ++ [
             ./hosts/${hostname}/hardware-configuration.nix
             ./hosts/${hostname}/configuration.nix

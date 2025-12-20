@@ -1,4 +1,4 @@
-{ pkgs, antigravity-nix, ... }:
+{ pkgs, ... }:
 
 {
   # Packages that should be installed to the user profile.
@@ -51,9 +51,6 @@
     devenv
     gcc
     nodejs_20
-
-    # editors
-    antigravity-nix.packages.${pkgs.system}.default
 
     # productivity
     libreoffice-fresh
