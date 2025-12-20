@@ -100,7 +100,6 @@
 
   virtualisation.docker = {
     enable = true;
-    storageDriver = "btrfs";
   };
 
   programs.nix-ld.enable = true;
