@@ -17,9 +17,6 @@
     configurationLimit = 10;
   };
 
-  # Temporarily using 6.17 until NVIDIA drivers support 6.18
-  boot.kernelPackages = pkgs.linuxPackages_6_17;
-
   networking.networkmanager.enable = true;
 
   time.timeZone = "Australia/Sydney";
