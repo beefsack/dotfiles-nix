@@ -16,6 +16,7 @@
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         vscodevim.vim
+        yzane.markdown-pdf
       ];
       userSettings = {
         "telemetry.telemetryLevel" = "off";
@@ -41,6 +42,7 @@
           "editor.selectionHighlight" = false;
         };
         "rust-analyzer.check.command" = "clippy";
+        "markdown-pdf.executablePath" = "chromium";
       };
     };
   };
