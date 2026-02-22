@@ -9,6 +9,9 @@
         name = "Michael Alexander";
         email = "beefsack@gmail.com";
       };
+      init = {
+        defaultBranch = "main";
+      };
     };
   };
 }
