@@ -50,7 +50,7 @@
     # programming
     devenv
     gcc
-    nodejs_20
+    nodejs
 
     # productivity
     libreoffice-fresh
