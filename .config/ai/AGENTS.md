@@ -47,3 +47,15 @@ Before writing any code, you must mentally perform these checks:
 
 ### 3. Strict Typing
 * **Explicit > Implicit:** In typed languages, explicit type hints and return types are mandatory.
+
+## DOCUMENTATION RULES
+
+* No fluff. No filler sentences. No prose.
+* No emoji.
+* No em dash - use a hyphen instead.
+* No horizontal ellipsis character - use three dots instead.
+* No metaphors.
+* No excessive agreement or positivity.
+* No overly long descriptions.
+* Write directly. State facts. List steps. Name types.
+* Every sentence must carry information. If removing it loses nothing, remove it.
