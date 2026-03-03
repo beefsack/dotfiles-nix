@@ -42,7 +42,7 @@
           "editor.selectionHighlight" = false;
         };
         "rust-analyzer.check.command" = "clippy";
-        "markdown-pdf.executablePath" = "chromium";
+        "markdown-pdf.executablePath" = "/etc/profiles/per-user/beefsack/bin/chromium";
       };
     };
   };

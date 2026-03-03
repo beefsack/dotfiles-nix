@@ -72,6 +72,9 @@
     gst_all_1.gst-libav
     # Support the Video Audio (Hardware) Acceleration API
     gst_all_1.gst-vaapi
+
+    # video editing
+    shotcut
   ];
 
   programs.gpg.enable = true;
@@ -88,4 +91,5 @@
   programs.chromium.enable = true;
   programs.firefox.enable = true;
   programs.direnv.enable = true;
+  programs.obs-studio.enable = true;
 }
