@@ -6,7 +6,6 @@
     ../../modules/home/git.nix
     ../../modules/home/terminal.nix
     ../../modules/home/vscode.nix
-    ../../modules/home/zed-editor.nix
     ../../modules/home/ai.nix
     ../../modules/home/displayManager/cosmic.nix
     ../../modules/home/displayManager/plasma6.nix
