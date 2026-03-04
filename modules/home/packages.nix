@@ -13,6 +13,7 @@
     dnsutils
 
     # misc
+    cheese
     discord
     file
     gawk
