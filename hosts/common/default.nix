@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
@@ -6,8 +6,11 @@
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/rgb.nix
     ../../modules/nixos/displayManager/cosmic.nix
+    ../../modules/nixos/displayManager/gnome.nix
     ../../modules/nixos/displayManager/plasma6.nix
   ];
+
+  beefsack.displayManager.gnome.enable = true;
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 

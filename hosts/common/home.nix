@@ -8,6 +8,7 @@
     ../../modules/home/vscode.nix
     ../../modules/home/ai.nix
     ../../modules/home/displayManager/cosmic.nix
+    ../../modules/home/displayManager/gnome.nix
     ../../modules/home/displayManager/plasma6.nix
   ];
 
@@ -16,7 +17,6 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    GTK_THEME = "Dracula:dark";
     NIXOS_OZONE_WL = 1;
   };
 

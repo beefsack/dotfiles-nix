@@ -13,7 +13,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      font-family = "SauceCodePro NFM Medium";
+      font-family = "SauceCodePro Nerd Font Mono";
       font-size = 13;
       window-decoration = false;
       palette = [

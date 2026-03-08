@@ -76,6 +76,9 @@
 
     # video editing
     shotcut
+
+    # meetings
+    teams-for-linux
   ];
 
   programs.gpg.enable = true;
