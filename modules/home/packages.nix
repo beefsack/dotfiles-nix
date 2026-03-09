@@ -49,6 +49,7 @@
     noto-fonts-color-emoji
 
     # programming
+    jetbrains.idea-oss
     devenv
     gcc
     nodejs

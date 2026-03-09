@@ -18,6 +18,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     NIXOS_OZONE_WL = 1;
+    # Fix Java UI scaling under GNOME fractional scaling on Wayland.
+    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
 
   home.file.".config/wallpaper/nixos.png" = {
