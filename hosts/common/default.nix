@@ -10,7 +10,7 @@
     ../../modules/nixos/displayManager/plasma6.nix
   ];
 
-  beefsack.displayManager.gnome.enable = true;
+  beefsack.displayManager.plasma6.enable = true;
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
