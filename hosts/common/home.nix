@@ -18,6 +18,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     NIXOS_OZONE_WL = 1;
+    RUST_MIN_STACK = 134217728;
   };
 
   home.file.".config/wallpaper/nixos.png" = {

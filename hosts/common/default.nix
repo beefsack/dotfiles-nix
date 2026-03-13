@@ -10,7 +10,7 @@
     ../../modules/nixos/displayManager/plasma6.nix
   ];
 
-  beefsack.displayManager.plasma6.enable = true;
+  beefsack.displayManager.cosmic.enable = true;
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
