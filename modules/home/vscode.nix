@@ -43,6 +43,7 @@
         };
         "rust-analyzer.check.command" = "clippy";
         "markdown-pdf.executablePath" = "/etc/profiles/per-user/beefsack/bin/chromium";
+        "terminal.integrated.enableKittyKeyboardProtocol" = false;
       };
     };
   };
