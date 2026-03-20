@@ -12,6 +12,19 @@ in {
           value = "ghostty";
         }
       ];
+      shortcuts = [
+        {
+          action = cosmicLib.cosmic.mkRON "enum" "ToggleSticky";
+          key = "Super+Shift+G";
+        }
+        {
+          action = cosmicLib.cosmic.mkRON "enum" {
+            value = [ (cosmicLib.cosmic.mkRON "enum" "AppLibrary") ];
+            variant = "System";
+          };
+          key = "Super";
+        }
+      ];
       compositor = {
         autotile = true;
         autotile_behavior = cosmicLib.cosmic.mkRON "enum" "PerWorkspace";
