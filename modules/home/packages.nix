@@ -53,6 +53,7 @@
     devenv
     gcc
     nodejs
+    uv
 
     # productivity
     libreoffice-fresh
