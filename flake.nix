@@ -27,6 +27,7 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
@@ -36,6 +37,7 @@
       lanzaboote,
       plasma-manager,
       cosmic-manager,
+      nixos-hardware,
       ...
     }:
     let
@@ -72,6 +74,13 @@
         beefsack-den = mkHost "beefsack-den";
         beefsack-house = mkHost "beefsack-house";
         beefsack-usb = mkHost "beefsack-usb";
+        beefsack-laptop = nixpkgs.lib.nixosSystem {
+          modules = commonModules ++ [
+            nixos-hardware.nixosModules.lenovo-thinkpad
+            ./hosts/beefsack-laptop/hardware-configuration.nix
+            ./hosts/beefsack-laptop/configuration.nix
+          ];
+        };
       };
     };
 }

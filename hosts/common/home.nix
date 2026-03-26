@@ -1,4 +1,4 @@
-{ ... }:
+{ osConfig, ... }:
 
 {
   imports = [
@@ -26,7 +26,7 @@
     recursive = true;
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = osConfig.system.stateVersion;
 
   programs.home-manager.enable = true;
 }
