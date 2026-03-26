@@ -37,8 +37,13 @@ let
               return EXIT_FAILURE;
           }
 
-          if (libusb_kernel_driver_active(handle, INTERFACE)) {
-              libusb_detach_kernel_driver(handle, INTERFACE);
+          libusb_set_auto_detach_kernel_driver(handle, 1);
+
+          if (libusb_claim_interface(handle, INTERFACE) < 0) {
+              fprintf(stderr, "Error: Failed to claim interface\n");
+              libusb_close(handle);
+              libusb_exit(NULL);
+              return EXIT_FAILURE;
           }
 
           res = libusb_control_transfer(handle,
@@ -51,7 +56,7 @@ let
               fprintf(stderr, "Error while sending: %s\n", libusb_error_name(res));
           }
 
-          libusb_attach_kernel_driver(handle, INTERFACE);
+          libusb_release_interface(handle, INTERFACE);
           libusb_close(handle);
           libusb_exit(NULL);
 
