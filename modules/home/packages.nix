@@ -55,6 +55,9 @@
     nodejs
     uv
 
+    # printing/scanning
+    system-config-printer
+
     # productivity
     libreoffice-fresh
 

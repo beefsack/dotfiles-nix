@@ -8,6 +8,7 @@
     ../../modules/nixos/displayManager/cosmic.nix
     ../../modules/nixos/displayManager/gnome.nix
     ../../modules/nixos/displayManager/plasma6.nix
+    ../../modules/nixos/printing.nix
   ];
 
   beefsack.displayManager.cosmic.enable = true;
@@ -45,8 +46,6 @@
     variant = "";
   };
 
-  services.printing.enable = true;
-
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -73,6 +72,7 @@
     extraGroups = [
       "docker"
       "networkmanager"
+      "scanner"
       "video"
       "wheel"
     ];
