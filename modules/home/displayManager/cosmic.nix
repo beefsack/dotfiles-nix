@@ -1,10 +1,23 @@
-{ config, lib, osConfig, cosmicLib, ... }:
+{ config, lib, osConfig, cosmicLib, pkgs, ... }:
 
 let
   cfg = osConfig.beefsack.displayManager.cosmic;
   mkRON = cosmicLib.cosmic.mkRON;
 in {
   config = lib.mkIf cfg.enable {
+    gtk = {
+      enable = true;
+      colorScheme = "dark";
+      theme = {
+        name = "Dracula";
+        package = pkgs.dracula-theme;
+      };
+      gtk4.theme = {
+        name = "Dracula";
+        package = pkgs.dracula-theme;
+      };
+    };
+
     programs.cosmic-ext-ctl.enable = true;
 
     wayland.desktopManager.cosmic = {
