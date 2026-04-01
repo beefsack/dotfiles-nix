@@ -8,7 +8,7 @@
     ../../modules/nixos/displayManager/cosmic.nix
     ../../modules/nixos/displayManager/gnome.nix
     ../../modules/nixos/displayManager/plasma6.nix
-    ../../modules/nixos/printing.nix
+../../modules/nixos/printing.nix
   ];
 
   beefsack.displayManager.cosmic.enable = true;

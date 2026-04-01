@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -10,6 +10,11 @@
 
   beefsack.nvidia.enable = true;
   beefsack.rgb.turnOffOnBoot = true;
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+  };
 
   system.stateVersion = "23.11";
 }
