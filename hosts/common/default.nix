@@ -96,6 +96,8 @@
     wirelesstools
   ];
 
+  services.ollama.enable = true;
+
   services.gvfs.enable = true;
 
   virtualisation.docker = {
