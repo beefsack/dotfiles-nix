@@ -94,6 +94,8 @@
     };
   };
   programs.neovim.enable = true;
+  programs.neovim.withRuby = false;
+  programs.neovim.withPython3 = false;
   programs.chromium.enable = true;
   programs.firefox.enable = true;
   programs.direnv.enable = true;
