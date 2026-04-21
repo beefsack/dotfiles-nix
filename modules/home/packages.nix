@@ -1,5 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, osConfig, ... }:
 
+let
+  claude = pkgs.writeShellScriptBin "claude" ''
+    exec ${pkgs.nodejs}/bin/npx --yes @anthropic-ai/claude-code "$@"
+  '';
+  opencode = pkgs.writeShellScriptBin "opencode" ''
+    exec ${pkgs.nodejs}/bin/npx --yes opencode-ai@latest "$@"
+  '';
+in
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -49,10 +57,12 @@
     noto-fonts-color-emoji
 
     # programming
+    claude
     jetbrains.idea-oss
     devenv
     gcc
     nodejs
+    opencode
     uv
 
     # printing/scanning
@@ -92,6 +102,7 @@
       color_theme = "dracula";
       theme_background = false;
     };
+    package = if osConfig.beefsack.nvidia.enable then pkgs.btop-cuda else pkgs.btop;
   };
   programs.neovim.enable = true;
   programs.neovim.withRuby = false;
