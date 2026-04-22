@@ -1,16 +1,5 @@
 { pkgs, osConfig, ... }:
 
-let
-  claude = pkgs.writeShellScriptBin "claude" ''
-    exec ${pkgs.nodejs}/bin/npx --yes @anthropic-ai/claude-code "$@"
-  '';
-  codex = pkgs.writeShellScriptBin "codex" ''
-    exec ${pkgs.nodejs}/bin/npx --yes @openai/codex "$@"
-  '';
-  opencode = pkgs.writeShellScriptBin "opencode" ''
-    exec ${pkgs.nodejs}/bin/npx --yes opencode-ai@latest "$@"
-  '';
-in
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -60,13 +49,10 @@ in
     noto-fonts-color-emoji
 
     # programming
-    claude
-    codex
     jetbrains.idea-oss
     devenv
     gcc
     nodejs
-    opencode
     uv
 
     # printing/scanning

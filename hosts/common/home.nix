@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home/packages.nix
+    ../../modules/home/npm.nix
     ../../modules/home/git.nix
     ../../modules/home/terminal.nix
     ../../modules/home/vscode.nix
