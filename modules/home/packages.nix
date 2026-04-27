@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }:
+{ pkgs, osConfig, config, ... }:
 
 {
   # Packages that should be installed to the user profile.
@@ -98,7 +98,11 @@
   programs.neovim.withRuby = false;
   programs.neovim.withPython3 = false;
   programs.chromium.enable = true;
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    # Adopting new default from 26.05 (previously ".mozilla/firefox")
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
+  };
   programs.direnv.enable = true;
   programs.obs-studio.enable = true;
 }
