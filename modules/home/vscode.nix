@@ -11,12 +11,18 @@
         eamodio.gitlens
         golang.go
         jnoortheen.nix-ide
-        mkhl.direnv
         ms-azuretools.vscode-docker
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         vscodevim.vim
         yzane.markdown-pdf
+      ] ++ [
+        (pkgs.vscode-utils.extensionFromVscodeMarketplace {
+          name = "devenv";
+          publisher = "datakurre";
+          version = "0.6.0";
+          sha256 = "0ifx86zqxwgbib0cf5ilvibhl5fx2shggnip6i8aqn5v00zy480v";
+        })
       ];
       userSettings = {
         "telemetry.telemetryLevel" = "off";

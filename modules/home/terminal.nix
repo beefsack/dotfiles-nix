@@ -6,7 +6,7 @@
     interactiveShellInit = "set fish_greeting";
   };
 
-  programs.direnv.enable = true;
+  xdg.configFile."fish/conf.d/devenv.fish".text = "devenv hook fish | source\n";
 
   programs.starship.enable = true;
 

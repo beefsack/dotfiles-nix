@@ -53,6 +53,7 @@
     devenv
     gcc
     nodejs
+    python3
     uv
 
     # printing/scanning
@@ -103,6 +104,5 @@
     # Adopting new default from 26.05 (previously ".mozilla/firefox")
     configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
-  programs.direnv.enable = true;
   programs.obs-studio.enable = true;
 }
