@@ -82,6 +82,10 @@
 
     # video editing
     shotcut
+
+    # image editing
+    gimp
+    inkscape
   ];
 
   programs.gpg.enable = true;
