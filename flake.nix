@@ -33,10 +33,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    antigravity-flake.url = "github:Hy4ri/antigravity-flake";
   };
 
   outputs =
-    {
+    inputs@{
       nixpkgs,
       home-manager,
       lanzaboote,
@@ -59,8 +60,7 @@
             plasma-manager.homeModules.plasma-manager
             cosmic-manager.homeManagerModules.default
           ];
-          home-manager.extraSpecialArgs = {
-          };
+          home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
 
