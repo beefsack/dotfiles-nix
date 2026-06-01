@@ -8,7 +8,6 @@
       extensions = with pkgs.vscode-extensions; [
         dart-code.flutter
         dracula-theme.theme-dracula
-        eamodio.gitlens
         golang.go
         jnoortheen.nix-ide
         ms-azuretools.vscode-docker
@@ -50,6 +49,7 @@
         "rust-analyzer.check.command" = "clippy";
         "markdown-pdf.executablePath" = "/etc/profiles/per-user/beefsack/bin/chromium";
         "terminal.integrated.enableKittyKeyboardProtocol" = false;
+        "git.blame.editorDecoration.enabled" = true;
       };
     };
   };
