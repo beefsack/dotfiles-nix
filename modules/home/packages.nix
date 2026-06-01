@@ -49,10 +49,12 @@
     noto-fonts-color-emoji
 
     # programming
-    jetbrains.idea-oss
+    crush
     devenv
     gcc
+    jetbrains.idea-oss
     nodejs
+    opencode
     python3
     uv
 

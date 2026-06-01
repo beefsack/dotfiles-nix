@@ -15,7 +15,6 @@ in
   home.packages = [
     (mkNpxBin "claude" "@anthropic-ai/claude-code")
     (mkNpxBin "codex" "@openai/codex")
-    (mkNpxBin "opencode" "opencode-ai@latest")
     (mkNpxBin "gemini" "@google/gemini-cli")
   ];
 }
