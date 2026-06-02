@@ -20,6 +20,7 @@
     EDITOR = "nvim";
     NIXOS_OZONE_WL = 1;
     RUST_MIN_STACK = 134217728;
+    OPENCODE_ENABLE_EXA = 1;
   };
 
   home.file.".config/wallpaper/nixos.png" = {
