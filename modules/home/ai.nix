@@ -22,7 +22,6 @@ in {
           "basename *" = "allow";
           "cat *" = "allow";
           "cut *" = "allow";
-          "date" = "allow";
           "date *" = "allow";
           "diff *" = "allow";
           "dirname *" = "allow";
@@ -36,7 +35,6 @@ in {
           "git show *" = "allow";
           "git stash list *" = "allow";
           "git stash show *" = "allow";
-          "git status" = "allow";
           "git status *" = "allow";
           "grep *" = "allow";
           "head *" = "allow";
