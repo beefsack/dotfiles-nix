@@ -54,7 +54,6 @@
     gcc
     jetbrains.idea-oss
     nodejs
-    opencode
     python3
     uv
 
@@ -90,7 +89,7 @@
     inkscape
 
     # from antigravity-flake (not in nixpkgs)
-    inputs.antigravity-flake.packages.${pkgs.system}.antigravity-cli
+    inputs.antigravity-flake.packages.${pkgs.stdenv.hostPlatform.system}.antigravity-cli
   ];
 
   programs.gpg.enable = true;
