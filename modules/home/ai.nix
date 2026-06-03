@@ -29,8 +29,12 @@ in {
           "file *" = "allow";
           "find *" = "allow";
           "git blame *" = "allow";
+          "git describe *" = "allow";
           "git diff *" = "allow";
+          "git help *" = "allow";
           "git log *" = "allow";
+          "git ls-files *" = "allow";
+          "git rev-parse *" = "allow";
           "git shortlog *" = "allow";
           "git show *" = "allow";
           "git stash list *" = "allow";
