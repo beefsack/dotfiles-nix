@@ -59,6 +59,9 @@ in {
           "*" = "ask";
         };
       };
+      provider.openrouter.models."deepseek/deepseek-v4-flash:deepseek" = {
+        id = "deepseek/deepseek-v4-flash:deepseek";
+      };
     };
   };
 }
