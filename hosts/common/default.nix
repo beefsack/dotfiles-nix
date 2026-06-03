@@ -39,13 +39,6 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  services.xserver.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
