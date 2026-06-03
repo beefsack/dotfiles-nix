@@ -1,4 +1,4 @@
-{ pkgs, osConfig, config, inputs, ... }:
+{ pkgs, osConfig, config, ... }:
 
 {
   # Packages that should be installed to the user profile.
@@ -88,8 +88,8 @@
     gimp
     inkscape
 
-    # from antigravity-flake (not in nixpkgs)
-    inputs.antigravity-flake.packages.${pkgs.stdenv.hostPlatform.system}.antigravity-cli
+    # AI CLI from nixpkgs
+    antigravity-cli
   ];
 
   programs.gpg.enable = true;
