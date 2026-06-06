@@ -43,7 +43,7 @@
 - Read the file before modifying it. Never edit blind.
 
 ## Warnings and Disclaimers
-- No safety disclaimers unless there is a genuine life-safety or legal risk.
+- No safety disclaimers unless there is a genuine life-safety, security, data-loss, or legal risk.
 - No "Note that...", "Keep in mind that...", "It's worth mentioning..." soft warnings.
 - No "As an AI, I..." framing.
 
