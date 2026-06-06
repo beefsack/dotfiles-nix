@@ -14,6 +14,14 @@ in {
     context = agentsMd;
     tui = {
       theme = "dracula";
+      keybinds = {
+        messages_first = "ctrl+g";
+        messages_last = "ctrl+alt+g";
+        input_line_home = "ctrl+a,home";
+        input_line_end = "ctrl+e,end";
+        input_buffer_home = "ctrl+shift+a";
+        input_buffer_end = "ctrl+shift+e";
+      };
     };
     settings = {
       permission = {
@@ -61,6 +69,11 @@ in {
       };
       provider.openrouter.models."deepseek/deepseek-v4-flash:deepseek" = {
         id = "deepseek/deepseek-v4-flash:deepseek";
+      };
+      agent = {
+        general.model = "opencode-go/deepseek-v4-flash";
+        explore.model = "opencode-go/deepseek-v4-flash";
+        scout.model = "opencode-go/deepseek-v4-flash";
       };
     };
   };
