@@ -11,6 +11,7 @@
         golang.go
         jnoortheen.nix-ide
         ms-azuretools.vscode-docker
+        nefrob.vscode-just-syntax
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         vscodevim.vim
@@ -21,6 +22,12 @@
           publisher = "datakurre";
           version = "0.6.0";
           sha256 = "0ifx86zqxwgbib0cf5ilvibhl5fx2shggnip6i8aqn5v00zy480v";
+        })
+        (pkgs.vscode-utils.extensionFromVscodeMarketplace {
+          name = "opencode";
+          publisher = "sst-dev";
+          version = "0.0.13";
+          sha256 = "e9a75751aa21fce3f9c9822d1f718043b1a9ba97e64c66b190a3fa85850c60d4";
         })
       ];
       userSettings = {
