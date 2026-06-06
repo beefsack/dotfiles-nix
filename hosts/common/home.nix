@@ -24,7 +24,7 @@
   };
 
   home.file.".config/wallpaper/nixos.png" = {
-    source = ../../.config/wallpaper/nixos.png;
+    source = ../../home/.config/wallpaper/nixos.png;
     recursive = true;
   };
 
