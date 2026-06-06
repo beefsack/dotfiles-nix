@@ -53,6 +53,7 @@
     devenv
     gcc
     jetbrains.idea-oss
+    just
     nodejs
     python3
     uv
