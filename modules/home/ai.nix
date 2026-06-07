@@ -59,6 +59,7 @@ in {
           "jq *" = "allow";
           "ls *" = "allow";
           "pwd" = "allow";
+          "qsv *" = "allow";
           "readlink *" = "allow";
           "realpath *" = "allow";
           "rg *" = "allow";
@@ -70,6 +71,7 @@ in {
           "uniq *" = "allow";
           "wc *" = "allow";
           "which *" = "allow";
+          "yq *" = "allow";
           "*" = "ask";
         };
       };

@@ -91,6 +91,10 @@
 
     # AI CLI from nixpkgs
     antigravity-cli
+
+    # data tools
+    qsv
+    yq-go
   ];
 
   programs.gpg.enable = true;
