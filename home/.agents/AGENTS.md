@@ -57,5 +57,10 @@
 - Do not refactor surrounding code when fixing a bug.
 - Do not create new files unless strictly necessary.
 
+## User Consultation
+- Never make assumptions or decisions on the user's behalf.
+- When you hit a roadblock, ambiguity, or discover something unexpected, stop and report
+  back. Ask before pivoting.
+
 ## Override Rule
 User instructions always override this file.
