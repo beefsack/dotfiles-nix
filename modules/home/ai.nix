@@ -30,6 +30,7 @@ in {
       };
     };
     settings = {
+      plugin = ["@coree-ai/opencode"];
       permission = {
         edit = "ask";
         bash = {
