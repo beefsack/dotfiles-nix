@@ -91,6 +91,7 @@ in {
           "readlink *" = "allow";
           "realpath *" = "allow";
           "rg *" = "allow";
+          "sleep *" = "allow";
           "sort *" = "allow";
           "stat *" = "allow";
           "tail *" = "allow";
