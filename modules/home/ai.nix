@@ -58,6 +58,7 @@ in {
           "gh pr status *" = "allow";
           "gh pr view *" = "allow";
           "gh project field-list *" = "allow";
+          "gh project field-view *" = "allow";
           "gh project item-list *" = "allow";
           "gh project item-view *" = "allow";
           "gh project list *" = "allow";
