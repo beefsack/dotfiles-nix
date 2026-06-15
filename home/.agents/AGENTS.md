@@ -62,5 +62,10 @@
 - When you hit a roadblock, ambiguity, or discover something unexpected, stop and report
   back. Ask before pivoting.
 
+## Shell Tooling
+- Prefer combining specialised command-line tools over scripting languages (Python, Ruby, etc.).
+- Use `jq` for JSON, `yq` for YAML, `qsv` for CSV.
+- Fall back to a scripting language only when the required transformation exceeds the capabilities of these tools.
+
 ## Override Rule
 User instructions always override this file.
