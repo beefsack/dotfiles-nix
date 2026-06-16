@@ -49,7 +49,6 @@
     noto-fonts-color-emoji
 
     # programming
-    crush
     devenv
     gcc
     jetbrains.idea-oss
@@ -89,8 +88,10 @@
     gimp
     inkscape
 
-    # AI CLI from nixpkgs
+    # AI
     antigravity-cli
+    crush
+    pi-coding-agent
 
     # data tools
     qsv
