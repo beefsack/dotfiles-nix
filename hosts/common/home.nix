@@ -1,10 +1,9 @@
-{ osConfig, ... }:
+{ config, osConfig, ... }:
 
 {
   imports = [
     ../../modules/home/packages.nix
     ../../modules/home/npm.nix
-    ../../modules/home/rust.nix
     ../../modules/home/git.nix
     ../../modules/home/terminal.nix
     ../../modules/home/vscode.nix
@@ -21,6 +20,7 @@
     EDITOR = "nvim";
     NIXOS_OZONE_WL = 1;
     RUST_MIN_STACK = 134217728;
+    CARGO_BUILD_BUILD_DIR = "${config.xdg.cacheHome}/cargo/build";
     OPENCODE_ENABLE_EXA = 1;
   };
 
