@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 let
   agentsMd = ../../home/.agents/AGENTS.md;
@@ -14,6 +14,14 @@ in {
   # Skills deployed to multiple locations from single source
   home.file.".claude/skills".source = skillsDir;
   home.file.".agents/skills".source = skillsDir;
+
+  home.packages = with pkgs; [
+    antigravity-cli
+    claude-code
+    codex
+    crush
+    pi-coding-agent
+  ];
 
   programs.opencode = {
     enable = true;

@@ -88,11 +88,6 @@
     gimp
     inkscape
 
-    # AI
-    antigravity-cli
-    crush
-    pi-coding-agent
-
     # data tools
     qsv
     yq-go
