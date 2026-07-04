@@ -15,6 +15,9 @@ in {
   home.file.".claude/skills".source = skillsDir;
   home.file.".agents/skills".source = skillsDir;
 
+  # Subagents
+  home.file.".claude/agents".source = ../../home/.agents/agents;
+
   home.packages = with pkgs; [
     antigravity-cli
     claude-code
