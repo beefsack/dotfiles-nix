@@ -48,6 +48,9 @@
           "editor.formatOnSave" = true;
         };
         "update.mode" = "none";
+        # nixpkgs patchelf corrupts the bundled vsce-sign binary, breaking
+        # signature checks and blocking all extension installs/updates
+        "extensions.verifySignature" = false;
         "[dart]" = {
           "editor.formatOnSave" = true;
           "editor.formatOnType" = true;
