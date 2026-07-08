@@ -2,7 +2,6 @@
 
 let
   agentsMd = ../../home/.agents/AGENTS.md;
-  skillsDir = ../../home/.agents/skills;
 in {
   # Rules deployed to each agent's expected location
   home.file."AGENTS.md".source = agentsMd;
@@ -10,13 +9,6 @@ in {
   home.file.".codex/AGENTS.md".source = agentsMd;
   home.file.".claude/rules/AGENTS.md".source = agentsMd;
   home.file.".config/crush/crush.json".source = ../../home/.config/crush/crush.json;
-
-  # Skills deployed to multiple locations from single source
-  home.file.".claude/skills".source = skillsDir;
-  home.file.".agents/skills".source = skillsDir;
-
-  # Subagents
-  home.file.".claude/agents".source = ../../home/.agents/agents;
 
   home.packages = with pkgs; [
     antigravity-cli
@@ -41,7 +33,7 @@ in {
       };
     };
     settings = {
-      plugin = ["@coree-ai/opencode"];
+      plugin = ["superpowers@git+https://github.com/obra/superpowers.git"];
       permission = {
         edit = "ask";
         bash = {
