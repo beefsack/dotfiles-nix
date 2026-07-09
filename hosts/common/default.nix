@@ -116,6 +116,4 @@
   programs.iotop.enable = true;
 
   services.flatpak.enable = true;
-
-  services.btrfs.autoScrub.enable = true;
 }

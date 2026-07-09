@@ -15,6 +15,7 @@
     "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
   };
+  services.btrfs.autoScrub.enable = true;
 
   system.stateVersion = "25.11";
 }
