@@ -13,5 +13,9 @@
     RuntimeMaxUse = "30M";
   };
 
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+  };
+
   system.stateVersion = "23.11";
 }

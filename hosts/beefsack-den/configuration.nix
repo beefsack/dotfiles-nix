@@ -11,5 +11,9 @@
   beefsack.nvidia.enable = true;
   beefsack.rgb.turnOffOnBoot = true;
 
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+  };
+
   system.stateVersion = "23.11";
 }
