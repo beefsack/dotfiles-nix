@@ -46,9 +46,18 @@ If your harness is not listed, do not specify a model when delegating.
 - When spawning a Lead, instruct it to activate the orchestrate skill and
   assume the Lead role.
 
-## Context budget
+## Sizing and the context budget
 
-Be efficient with context usage so all sessions stay under a 150k token
-context budget. Size all delegated work to be achievable within 150k
-tokens. If a subagent approaches 150k, ask it for a handover and start a
-fresh subagent. Avoid recycling subagents - prefer spawning new ones.
+Every session at every tier must stay under a hard 150k token context
+budget.
+
+- Orchestrator: size each unit of work so a Lead can complete it,
+  including its own investigation and planning, within the budget.
+  When unsure, split smaller - multiple sequential Leads are cheaper
+  than one exhausted Lead.
+- Lead: before starting, estimate whether the unit fits the budget.
+  If it does not - or if mid-task it becomes clear it will not - stop
+  and report back to the Orchestrator with a proposed breakdown into
+  smaller units. Do not grind on.
+- If a subagent approaches the budget, ask it for a handover and start
+  a fresh subagent. Prefer new subagents over recycling.
