@@ -52,6 +52,7 @@
     devenv
     gcc
     just
+    mold
     nodejs
     python3
     uv
