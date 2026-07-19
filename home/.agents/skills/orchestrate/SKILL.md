@@ -42,7 +42,16 @@ If your harness is not listed, do not specify a model when delegating.
 
 ## Delegating
 
-- Work in serial, never in parallel.
+- Work in serial, never in parallel, at every tier: Orchestrator-to-Lead
+  and Lead-to-Worker alike. Spawn one subagent, wait for it to finish,
+  review the result, then spawn the next. Never issue more than one
+  subagent dispatch in the same response.
+- This applies even when tasks look independent. If the
+  `dispatching-parallel-agents` skill's trigger seems to match ("2+
+  independent tasks"), this rule overrides it for any Orchestrator or Lead
+  operating under this skill - do not fan out concurrent dispatches.
+- Only spawn a subagent when it has concrete, ready-to-execute work. Never
+  spawn a placeholder, idle, or "just in case" subagent.
 - When spawning a Lead, instruct it to activate the orchestrate skill and
   assume the Lead role.
 
