@@ -60,13 +60,31 @@ If your harness is not listed, do not specify a model when delegating.
 Every session at every tier must stay under a hard 150k token context
 budget.
 
-- Orchestrator: size each unit of work so a Lead can complete it,
-  including its own investigation and planning, within the budget.
-  When unsure, split smaller - multiple sequential Leads are cheaper
-  than one exhausted Lead.
+- Break work down aggressively. A unit is one layer, one page section,
+  or one integration concern - never a whole feature or a whole page.
+  Prefer 6-10 small sequential Leads over 2-3 large ones: small units
+  keep every Lead far under budget, localize failures, and make
+  dead-Lead recovery cheap (respawn with a one-paragraph state summary).
+  When unsure, split smaller.
 - Lead: before starting, estimate whether the unit fits the budget.
   If it does not - or if mid-task it becomes clear it will not - stop
   and report back to the Orchestrator with a proposed breakdown into
   smaller units. Do not grind on.
 - If a subagent approaches the budget, ask it for a handover and start
   a fresh subagent. Prefer new subagents over recycling.
+
+## Handover and continuity
+
+- For any multi-unit feature, the first unit is a survey Lead: it reads
+  the spec and codebase and writes a context-handover doc (file paths,
+  patterns to copy, gotchas, and a "decisions" section resolving
+  ambiguities once). Every later Lead brief points at this doc - context
+  lives on disk, not in the conversation.
+- Each unit ends with its own verification suite and its own commit;
+  defer pushing to a final cleanup unit.
+- Carry known-issue lists (flaky tests, fmt offenders, pending scope
+  overrides) forward through every Lead brief so they survive agent
+  deaths.
+- Lead briefs must include: "do not stop to wait for worker
+  notifications - read worker output files and keep driving until the
+  unit is complete."
