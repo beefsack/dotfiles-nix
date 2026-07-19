@@ -129,11 +129,11 @@ in {
       };
       agent = {
         general = {
-          model = "opencode-go/deepseek-v4-flash";
+          model = "alibaba-token-plan/qwen3.8-max-preview";
           permission.task = "allow";
         };
-        explore.model = "opencode-go/deepseek-v4-flash";
-        scout.model = "opencode-go/deepseek-v4-flash";
+        explore.model = "alibaba-token-plan/qwen3.8-max-preview";
+        scout.model = "alibaba-token-plan/qwen3.8-max-preview";
       };
     };
   };
