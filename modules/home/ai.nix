@@ -39,6 +39,7 @@ in {
     };
     settings = {
       plugin = ["superpowers@git+https://github.com/obra/superpowers.git"];
+      subagent_depth = 2;
       permission = {
         edit = "ask";
         bash = {
@@ -127,7 +128,10 @@ in {
         };
       };
       agent = {
-        general.model = "opencode-go/deepseek-v4-flash";
+        general = {
+          model = "opencode-go/deepseek-v4-flash";
+          permission.task = "allow";
+        };
         explore.model = "opencode-go/deepseek-v4-flash";
         scout.model = "opencode-go/deepseek-v4-flash";
       };
