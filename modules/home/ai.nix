@@ -115,6 +115,17 @@ in {
       provider.openrouter.models."deepseek/deepseek-v4-flash:deepseek" = {
         id = "deepseek/deepseek-v4-flash:deepseek";
       };
+      provider."alibaba-token-plan".models."qwen3.8-max-preview" = {
+        name = "Qwen3.8 Max Preview";
+        modalities = {
+          input = ["text"];
+          output = ["text"];
+        };
+        limit = {
+          context = 1048576;
+          output = 65536;
+        };
+      };
       agent = {
         general.model = "opencode-go/deepseek-v4-flash";
         explore.model = "opencode-go/deepseek-v4-flash";
