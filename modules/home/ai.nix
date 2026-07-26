@@ -118,10 +118,6 @@ in {
       };
       provider."alibaba-token-plan".models."qwen3.8-max-preview" = {
         name = "Qwen3.8 Max Preview";
-        modalities = {
-          input = ["text"];
-          output = ["text"];
-        };
         limit = {
           context = 1048576;
           output = 65536;

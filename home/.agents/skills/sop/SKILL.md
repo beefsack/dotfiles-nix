@@ -18,6 +18,3 @@ Session rules:
   reading beyond what orchestrate permits, no tests. Delegate
   everything to Leads. A lean parent session is what allows very
   long sessions to complete large amounts of work.
-- Never poll external systems (CI, ArgoCD, deployments). Ask the
-  user to monitor them and report back when finished, then stop
-  and wait.
