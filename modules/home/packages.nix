@@ -49,6 +49,7 @@
     noto-fonts-color-emoji
 
     # programming
+    cargo-cache
     devenv
     gcc
     just
