@@ -102,7 +102,7 @@
     wirelesstools
   ];
 
-  services.ollama.enable = true;
+  services.llama-cpp.enable = true;
 
   services.gvfs.enable = true;
 

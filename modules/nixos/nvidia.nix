@@ -19,7 +19,9 @@ in {
 
     boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 
-    services.ollama.package = pkgs.ollama-cuda;
+    environment.systemPackages = [
+      (pkgs.llama-cpp.override { cudaSupport = true; })
+    ];
 
     nix.settings = {
       extra-substituters = [ "https://cache.nixos-cuda.org" "https://nix-community.cachix.org" ];
