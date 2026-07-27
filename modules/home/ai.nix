@@ -20,6 +20,7 @@ in {
     claude-code
     codex
     crush
+    lmstudio
     pi-coding-agent
   ];
 

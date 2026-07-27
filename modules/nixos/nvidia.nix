@@ -19,10 +19,6 @@ in {
 
     boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 
-    environment.systemPackages = [
-      (pkgs.llama-cpp.override { cudaSupport = true; })
-    ];
-
     nix.settings = {
       extra-substituters = [ "https://cache.nixos-cuda.org" "https://nix-community.cachix.org" ];
       extra-trusted-public-keys = [

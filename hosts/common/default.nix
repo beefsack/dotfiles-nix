@@ -102,8 +102,6 @@
     wirelesstools
   ];
 
-  services.llama-cpp.enable = true;
-
   services.gvfs.enable = true;
 
   virtualisation.docker = {
