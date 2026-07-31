@@ -131,6 +131,17 @@ in {
         };
         explore.model = "alibaba-token-plan/qwen3.8-max-preview";
         scout.model = "alibaba-token-plan/qwen3.8-max-preview";
+	orchestrator = {
+	  model = "openai/gpt-5.6-sol";
+	  variant = "high";
+	  permission.task = "allow";
+	};
+	lead = {
+	  model = "openai/gpt-5.6-terra";
+	  variant = "high";
+	  permission.task = "allow";
+	};
+        worker.model = "alibaba-token-plan/qwen3.8-max-preview";
       };
     };
   };
