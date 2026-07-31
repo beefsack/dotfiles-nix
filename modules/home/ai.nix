@@ -39,10 +39,7 @@ in {
       };
     };
     settings = {
-      plugin = [
-        "superpowers@git+https://github.com/obra/superpowers.git"
-        "@khalilgharbaoui/opencode-claude-code-plugin"
-      ];
+      plugin = ["superpowers@git+https://github.com/obra/superpowers.git"];
       subagent_depth = 2;
       permission = {
         edit = "ask";
@@ -134,11 +131,6 @@ in {
         };
         explore.model = "alibaba-token-plan/qwen3.8-max-preview";
         scout.model = "alibaba-token-plan/qwen3.8-max-preview";
-	lead = {
-	  model = "claude-code/claude-sonnet-5";
-	  permission.task = "allow";
-	};
-        worker.model = "alibaba-token-plan/qwen3.8-max-preview";
       };
     };
   };

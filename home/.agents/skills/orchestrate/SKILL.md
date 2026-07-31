@@ -36,7 +36,7 @@ model when spawning a Lead. Workers run on the fast model for the harness:
 | Claude Code | sonnet           |
 | Codex       | gpt-5.6-terra    |
 | Antigravity | gemini-3.5-flash |
-| opencode    | use the "lead" and "worker" agents for the lead and worker roles |
+| opencode    | do not specify; use the configured agents |
 
 If your harness is not listed, do not specify a model when delegating.
 
