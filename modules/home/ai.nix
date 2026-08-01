@@ -2,7 +2,6 @@
 
 let
   agentsMd = ../../home/.agents/AGENTS.md;
-  skillsDir = ../../home/.agents/skills;
 in {
   # Rules deployed to each agent's expected location
   home.file."AGENTS.md".source = agentsMd;
@@ -10,10 +9,6 @@ in {
   home.file.".codex/AGENTS.md".source = agentsMd;
   home.file.".claude/rules/AGENTS.md".source = agentsMd;
   home.file.".config/crush/crush.json".source = ../../home/.config/crush/crush.json;
-
-  # Skills deployed to multiple locations from single source
-  home.file.".claude/skills".source = skillsDir;
-  home.file.".agents/skills".source = skillsDir;
 
   home.packages = with pkgs; [
     antigravity-cli
@@ -39,7 +34,7 @@ in {
       };
     };
     settings = {
-      plugin = ["superpowers@git+https://github.com/obra/superpowers.git"];
+      plugin = ["processed-beef@git+https://github.com/beefsack/processed-beef.git"];
       subagent_depth = 2;
       permission = {
         edit = "ask";
@@ -126,11 +121,11 @@ in {
       };
       agent = {
         general = {
-          model = "alibaba-token-plan/qwen3.8-max-preview";
+          model = "opencode-go/deepseek-v4-flash";
           permission.task = "allow";
         };
-        explore.model = "alibaba-token-plan/qwen3.8-max-preview";
-        scout.model = "alibaba-token-plan/qwen3.8-max-preview";
+        explore.model = "opencode-go/deepseek-v4-flash";
+        scout.model = "opencode-go/deepseek-v4-flash";
 	orchestrator = {
 	  model = "openai/gpt-5.6-sol";
 	  variant = "high";
@@ -141,7 +136,7 @@ in {
 	  variant = "high";
 	  permission.task = "allow";
 	};
-        worker.model = "alibaba-token-plan/qwen3.8-max-preview";
+        worker.model = "opencode-go/deepseek-v4-flash";
       };
     };
   };
