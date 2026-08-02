@@ -126,16 +126,16 @@ in {
         };
         explore.model = "opencode-go/deepseek-v4-flash";
         scout.model = "opencode-go/deepseek-v4-flash";
-	orchestrator = {
-	  model = "openai/gpt-5.6-sol";
-	  variant = "high";
-	  permission.task = "allow";
-	};
-	lead = {
-	  model = "openai/gpt-5.6-terra";
-	  variant = "high";
-	  permission.task = "allow";
-	};
+        orchestrator = {
+          model = "openai/gpt-5.6-sol";
+          variant = "high";
+          permission.task = "allow";
+        };
+        lead = {
+          model = "openai/gpt-5.6-terra";
+          variant = "high";
+          permission.task = "allow";
+        };
         worker.model = "opencode-go/deepseek-v4-flash";
       };
     };
