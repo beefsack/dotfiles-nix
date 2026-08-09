@@ -34,7 +34,10 @@ in {
       };
     };
     settings = {
-      plugin = ["processed-beef@git+https://github.com/beefsack/processed-beef.git"];
+      plugin = [
+        "processed-beef@git+https://github.com/beefsack/processed-beef.git"
+        "opencode-claude-auth@latest"
+      ];
       subagent_depth = 2;
       permission = {
         edit = "ask";
@@ -126,13 +129,23 @@ in {
         };
         explore.model = "opencode-go/deepseek-v4-flash";
         scout.model = "opencode-go/deepseek-v4-flash";
-        orchestrator = {
+        orchestrator-openai = {
           model = "openai/gpt-5.6-sol";
           variant = "high";
           permission.task = "allow";
         };
-        lead = {
+        lead-openai = {
           model = "openai/gpt-5.6-terra";
+          variant = "high";
+          permission.task = "allow";
+        };
+        orchestrator-anthropic = {
+          model = "anthropic/claude-opus-5";
+          variant = "high";
+          permission.task = "allow";
+        };
+        lead-anthropic = {
+          model = "anthropic/claude-sonnet-5";
           variant = "high";
           permission.task = "allow";
         };
