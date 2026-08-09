@@ -5,6 +5,7 @@ let
 in {
   config = lib.mkIf cfg.enable {
     home.packages = [
+      pkgs.klassy
       pkgs.kdePackages.krohnkite
       pkgs.kdePackages.dynamic-workspaces
     ];
@@ -59,8 +60,8 @@ in {
         colorScheme = "Dracula";
         theme = "Dracula";
         windowDecorations = {
-          library = "org.kde.kwin.aurorae";
-          theme = "__aurorae__svg__Dracula";
+          library = "org.kde.klassy";
+          theme = "Klassy";
         };
         wallpaper = "${config.home.homeDirectory}/.config/wallpaper/nixos.png";
       };
@@ -81,11 +82,16 @@ in {
           screenGapRight = 8;
           screenGapBetween = 8;
         };
-        # Active border: Dracula purple. Inactive: muted blue.
-        # These apply to Breeze decorations via kdeglobals WM frame colors.
-        "kdeglobals"."WM" = {
-          frame = "189,147,249";
-          inactiveFrame = "98,114,164";
+        "klassy/klassyrc"."Windeco" = {
+          WindowCornerRadius = 10;
+          ColorizeWindowOutlineWithButton = false;
+        };
+        "klassy/klassyrc"."WindowOutlineStyle" = {
+          WindowOutlineThickness = 1.5;
+          WindowOutlineStyleActive = "WindowOutlineCustomColor";
+          WindowOutlineCustomColorActive = "189,147,249";
+          WindowOutlineCustomColorOpacityActive = 100;
+          WindowOutlineStyleInactive = "WindowOutlineNone";
         };
         # Show visible borders (not auto/theme-default which is often none).
         "kwinrc"."org.kde.kdecoration2" = {

@@ -11,7 +11,7 @@
     ../../modules/nixos/printing.nix
   ];
 
-  beefsack.displayManager.cosmic.enable = true;
+  beefsack.displayManager.plasma6.enable = true;
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
