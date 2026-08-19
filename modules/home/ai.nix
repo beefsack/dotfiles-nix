@@ -150,6 +150,19 @@ in {
           permission.task = "allow";
         };
         worker.model = "opencode-go/deepseek-v4-flash";
+        opencode-deepseek-pro = {
+          model = "opencode-go/deepseek-v4-pro";
+          permission.task = "allow";
+        };
+        opencode-deepseek-flash.model = "opencode-go/deepseek-v4-flash";
+        worker-openai = {
+          model = "openai/gpt-5.6-luna";
+          variant = "high";
+        };
+        worker-anthropic = {
+          model = "anthropic/claude-sonnet-5";
+          variant = "low";
+        };
       };
     };
   };
