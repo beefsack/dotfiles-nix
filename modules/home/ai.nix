@@ -149,12 +149,11 @@ in {
           variant = "high";
           permission.task = "allow";
         };
-        worker.model = "opencode-go/deepseek-v4-flash";
-        opencode-deepseek-pro = {
+        lead-opencode = {
           model = "opencode-go/deepseek-v4-pro";
           permission.task = "allow";
         };
-        opencode-deepseek-flash.model = "opencode-go/deepseek-v4-flash";
+        worker-opencode.model = "opencode-go/deepseek-v4-flash";
         worker-openai = {
           model = "openai/gpt-5.6-luna";
           variant = "high";

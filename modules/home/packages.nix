@@ -79,6 +79,7 @@
     gst_all_1.gst-plugins-ugly
     # Plugins to reuse ffmpeg to play almost every video format
     gst_all_1.gst-libav
+    vlc
 
     # video editing
     shotcut
