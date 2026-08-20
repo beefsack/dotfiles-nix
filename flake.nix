@@ -57,6 +57,12 @@
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         {
+          # Temporary vendoring is removable when PR #548380 lands.
+          nixpkgs.overlays = [
+            (final: _prev: {
+              dracula-theme = final.callPackage ./pkgs/dracula-theme.nix { };
+            })
+          ];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.beefsack = import ./hosts/common/home.nix;
