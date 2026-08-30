@@ -6,7 +6,10 @@
     interactiveShellInit = "set fish_greeting";
   };
 
-  programs.direnv.enable = true;
+  programs.devenv = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   programs.starship.enable = true;
 

@@ -50,7 +50,6 @@
 
     # programming
     cargo-cache
-    devenv
     gcc
     just
     mold
