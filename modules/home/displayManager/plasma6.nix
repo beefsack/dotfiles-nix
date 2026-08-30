@@ -14,6 +14,7 @@ in {
       };
 
       kwin.effects.shakeCursor.enable = false;
+      configFile."kwinrc".Windows.PerOutputVirtualDesktops = true;
 
       panels = [
         {
@@ -21,8 +22,12 @@ in {
           widgets = [
             "org.kde.plasma.kickoff"
             {
-              name = "org.kde.plasma.pager";
-              config.General.displayedText = "Number";
+              pager.general = {
+                displayedText = "desktopNumber";
+                showApplicationIconsOnWindowOutlines = true;
+                showOnlyCurrentScreen = true;
+                showWindowOutlines = true;
+              };
             }
             "org.kde.plasma.panelspacer"
             "org.kde.plasma.marginsseparator"
