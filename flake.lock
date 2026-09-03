@@ -164,11 +164,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788472557,
-        "narHash": "sha256-mRTJ3jfmB8ZwtEhQ3OF3/YMvElz4FsCqaixvxKX1geY=",
+        "lastModified": 1788475600,
+        "narHash": "sha256-/5n1UvJ/BJOzu1gUTXeAGDofyb5FWD1bsag9oocTvtA=",
         "owner": "beefsack",
         "repo": "plasma-auto-tiler",
-        "rev": "21eb0cb159d0d71f18f0fb2b7ca405324c86505e",
+        "rev": "2b10cca37d89b59d4ca68b7adfb569c4c90e96e9",
         "type": "github"
       },
       "original": {
