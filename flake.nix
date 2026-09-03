@@ -11,6 +11,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    plasma-auto-tiler = {
+      url = "github:beefsack/plasma-auto-tiler";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -49,6 +53,7 @@
       plasma-manager,
       cosmic-manager,
       nixos-hardware,
+      plasma-auto-tiler,
       ...
     }:
     let
@@ -64,6 +69,7 @@
           home-manager.sharedModules = [
             plasma-manager.homeModules.plasma-manager
             cosmic-manager.homeManagerModules.default
+            plasma-auto-tiler.homeManagerModules.default
           ];
           home-manager.extraSpecialArgs = { };
         }
@@ -85,6 +91,7 @@
         beefsack-house = mkHost "beefsack-house";
         beefsack-usb = mkHost "beefsack-usb";
         beefsack-laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit plasma-auto-tiler; };
           modules = commonModules ++ [
             nixos-hardware.nixosModules.lenovo-thinkpad
             ./hosts/beefsack-laptop/hardware-configuration.nix
