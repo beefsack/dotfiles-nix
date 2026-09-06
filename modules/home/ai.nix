@@ -162,6 +162,14 @@ in {
           model = "anthropic/claude-sonnet-5";
           variant = "low";
         };
+        worker-gemini = {
+          model = "openrouter/google/gemini-3.8-flash";
+          variant = "high";
+        };
+        worker-muse = {
+          model = "opencode-go/muse-spark-1.3-contributor";
+          variant = "high";
+        };
       };
     };
   };
