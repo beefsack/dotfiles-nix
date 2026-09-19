@@ -157,26 +157,6 @@
         "type": "github"
       }
     },
-    "plasma-auto-tiler": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1788475600,
-        "narHash": "sha256-/5n1UvJ/BJOzu1gUTXeAGDofyb5FWD1bsag9oocTvtA=",
-        "owner": "beefsack",
-        "repo": "plasma-auto-tiler",
-        "rev": "2b10cca37d89b59d4ca68b7adfb569c4c90e96e9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "beefsack",
-        "repo": "plasma-auto-tiler",
-        "type": "github"
-      }
-    },
     "plasma-manager": {
       "inputs": {
         "home-manager": [
@@ -229,7 +209,6 @@
         "lanzaboote": "lanzaboote",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "plasma-auto-tiler": "plasma-auto-tiler",
         "plasma-manager": "plasma-manager"
       }
     },
