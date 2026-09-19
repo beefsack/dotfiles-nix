@@ -4,8 +4,6 @@ let
   cfg = osConfig.beefsack.displayManager.plasma6;
 in {
   config = lib.mkIf cfg.enable {
-    programs.plasma-auto-tiler.tray.enable = true;
-
     programs.plasma = {
       enable = true;
 
@@ -51,7 +49,6 @@ in {
                   "org.kde.plasma.keyboardindicator"
                   "org.kde.plasma.networkmanagement"
                   "org.kde.plasma.printmanager"
-                  "plasma-auto-tiler"
                   "org.kde.plasma.volume"
                   "org.kde.plasma.weather"
                 ];
