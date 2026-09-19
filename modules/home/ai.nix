@@ -134,6 +134,11 @@ in {
           variant = "high";
           permission.task = "allow";
         };
+        orchestrator-astra = {
+          model = "openai/gpt-6-astra";
+          variant = "high";
+          permission.task = "allow";
+        };
         lead-openai = {
           model = "openai/gpt-5.6-terra";
           variant = "high";
