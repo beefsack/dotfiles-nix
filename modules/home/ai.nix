@@ -129,51 +129,53 @@ in {
         };
         explore.model = "opencode-go/deepseek-v4-flash";
         scout.model = "opencode-go/deepseek-v4-flash";
-        orchestrator-openai = {
-          model = "openai/gpt-5.6-sol";
-          variant = "high";
-          permission.task = "allow";
-        };
-        orchestrator-astra = {
+        gpt-astra = {
           model = "openai/gpt-6-astra";
           variant = "high";
           permission.task = "allow";
         };
-        lead-openai = {
-          model = "openai/gpt-5.6-terra";
+        gpt-sol = {
+          model = "openai/gpt-6-sol";
           variant = "high";
           permission.task = "allow";
         };
-        orchestrator-anthropic = {
-          model = "anthropic/claude-opus-5";
+        gpt-terra = {
+          model = "openai/gpt-6-terra";
           variant = "high";
           permission.task = "allow";
         };
-        lead-anthropic = {
+        gpt-luna = {
+          model = "openai/gpt-6-luna";
+          variant = "high";
+          permission.task = "allow";
+        };
+        claude-opus = {
+          model = "anthropic/claude-opus-5-5";
+          variant = "high";
+          permission.task = "allow";
+        };
+        claude-sonnet = {
           model = "anthropic/claude-sonnet-5";
           variant = "high";
           permission.task = "allow";
         };
-        lead-opencode = {
+        deepseek-pro = {
           model = "opencode-go/deepseek-v4-pro";
           permission.task = "allow";
         };
-        worker-opencode.model = "opencode-go/deepseek-v4-flash";
-        worker-openai = {
-          model = "openai/gpt-5.6-luna";
-          variant = "high";
+        deepseek-flash = {
+          model = "opencode-go/deepseek-v4-flash";
+          permission.task = "allow";
         };
-        worker-anthropic = {
-          model = "anthropic/claude-sonnet-5";
-          variant = "low";
-        };
-        worker-gemini = {
+        gemini-flash = {
           model = "openrouter/google/gemini-3.8-flash";
           variant = "high";
+          permission.task = "allow";
         };
-        worker-muse = {
+        muse-spark = {
           model = "opencode-go/muse-spark-1.3-contributor";
           variant = "high";
+          permission.task = "allow";
         };
       };
     };
