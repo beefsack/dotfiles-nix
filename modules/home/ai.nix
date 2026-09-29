@@ -135,7 +135,7 @@ in {
           permission.task = "allow";
         };
         gpt-sol = {
-          model = "openai/gpt-6-sol";
+          model = "openai/gpt-6.1-sol";
           variant = "high";
           permission.task = "allow";
         };
