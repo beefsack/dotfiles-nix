@@ -35,8 +35,10 @@ in {
     };
     settings = {
       plugin = [
-        "processed-beef@git+https://github.com/beefsack/processed-beef.git"
         "opencode-claude-auth@latest"
+      ];
+      skills.urls = [
+        "https://raw.githubusercontent.com/beefsack/processed-beef/main/skills/"
       ];
       subagent_depth = 2;
       permission = {
