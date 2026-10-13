@@ -126,11 +126,11 @@ in {
       };
       agent = {
         general = {
-          model = "opencode-go/deepseek-v4-flash";
+          model = "opencode-go/muse-spark-1.3-contributor";
           permission.task = "allow";
         };
-        explore.model = "opencode-go/deepseek-v4-flash";
-        scout.model = "opencode-go/deepseek-v4-flash";
+        explore.model = "opencode-go/muse-spark-1.3-contributor";
+        scout.model = "opencode-go/muse-spark-1.3-contributor";
         gpt-astra = {
           model = "openai/gpt-6-astra";
           variant = "high";
