@@ -34,151 +34,45 @@ in {
       };
     };
     settings = {
-      plugin = [
-        "opencode-claude-auth@latest"
+      default_agent = "orchestrator";
+      plugins = [
+        "@openchamber/opencode-claude"
       ];
       skills.urls = [
         "https://raw.githubusercontent.com/beefsack/processed-beef/main/skills/"
       ];
-      subagent_depth = 2;
-      permission = {
-        edit = "ask";
-        bash = {
-          "basename *" = "allow";
-          "cargo build *" = "allow";
-          "cargo check *" = "allow";
-          "cargo clippy *" = "allow";
-          "cargo test *" = "allow";
-          "cat *" = "allow";
-          "cut *" = "allow";
-          "date *" = "allow";
-          "diff *" = "allow";
-          "dirname *" = "allow";
-          "echo *" = "allow";
-          "file *" = "allow";
-          "find *" = "allow";
-          "gh auth status *" = "allow";
-          "gh config list *" = "allow";
-          "gh issue list *" = "allow";
-          "gh issue status *" = "allow";
-          "gh issue view *" = "allow";
-          "gh pr checks *" = "allow";
-          "gh pr diff *" = "allow";
-          "gh pr list *" = "allow";
-          "gh pr status *" = "allow";
-          "gh pr view *" = "allow";
-          "gh project field-list *" = "allow";
-          "gh project field-view *" = "allow";
-          "gh project item-list *" = "allow";
-          "gh project item-view *" = "allow";
-          "gh project list *" = "allow";
-          "gh project view *" = "allow";
-          "gh run list *" = "allow";
-          "gh run view *" = "allow";
-          "gh run watch *" = "allow";
-          "gh search issues *" = "allow";
-          "gh search prs *" = "allow";
-          "gh workflow list *" = "allow";
-          "gh workflow view *" = "allow";
-          "git blame *" = "allow";
-          "git describe *" = "allow";
-          "git diff *" = "allow";
-          "git help *" = "allow";
-          "git log *" = "allow";
-          "git ls-files *" = "allow";
-          "git rev-parse *" = "allow";
-          "git shortlog *" = "allow";
-          "git show *" = "allow";
-          "git stash list *" = "allow";
-          "git stash show *" = "allow";
-          "git status *" = "allow";
-          "grep *" = "allow";
-          "head *" = "allow";
-          "jq *" = "allow";
-          "ls *" = "allow";
-          "pwd" = "allow";
-          "qsv *" = "allow";
-          "readlink *" = "allow";
-          "realpath *" = "allow";
-          "rg *" = "allow";
-          "sleep *" = "allow";
-          "sort *" = "allow";
-          "stat *" = "allow";
-          "tail *" = "allow";
-          "tree *" = "allow";
-          "type *" = "allow";
-          "uniq *" = "allow";
-          "wc *" = "allow";
-          "which *" = "allow";
-          "yq *" = "allow";
-          "*" = "ask";
+      experimental.subagent_depth = 3;
+      agents = {
+        orchestrator = {
+          model = "claude-code/claude-opus-5-5#high";
+          mode = "primary";
+          permissions = [
+            { action = "subagent"; resource = "*"; effect = "allow"; }
+          ];
+          system = "Load the processed-beef skill. Use the lead agent for the lead role and the worker agent for the worker role. All agents must be spawned in the foreground.";
         };
-      };
-      provider.openrouter.models."deepseek/deepseek-v4-flash:deepseek" = {
-        id = "deepseek/deepseek-v4-flash:deepseek";
-      };
-      provider."alibaba-token-plan".models."qwen3.8-max-preview" = {
-        name = "Qwen3.8 Max Preview";
-        limit = {
-          context = 1048576;
-          output = 65536;
+        lead = {
+          model = "openai/gpt-6.1-sol#high";
+          mode = "subagent";
+          permissions = [
+            { action = "subagent"; resource = "*"; effect = "deny"; }
+            { action = "subagent"; resource = "worker"; effect = "allow"; }
+            { action = "subagent"; resource = "explore"; effect = "allow"; }
+            { action = "subagent"; resource = "scout"; effect = "allow"; }
+          ];
         };
-      };
-      agent = {
-        general = {
-          model = "opencode-go/muse-spark-1.3-contributor";
-          permission.task = "allow";
+        worker = {
+          model = "opencode-go/muse-spark-1.3-contributor#high";
+          mode = "subagent";
+          permissions = [
+            { action = "subagent"; resource = "*"; effect = "deny"; }
+            { action = "subagent"; resource = "explore"; effect = "allow"; }
+            { action = "subagent"; resource = "scout"; effect = "allow"; }
+          ];
         };
-        explore.model = "opencode-go/muse-spark-1.3-contributor";
-        scout.model = "opencode-go/muse-spark-1.3-contributor";
-        gpt-astra = {
-          model = "openai/gpt-6-astra";
-          variant = "high";
-          permission.task = "allow";
-        };
-        gpt-sol = {
-          model = "openai/gpt-6.1-sol";
-          variant = "high";
-          permission.task = "allow";
-        };
-        gpt-terra = {
-          model = "openai/gpt-6-terra";
-          variant = "high";
-          permission.task = "allow";
-        };
-        gpt-luna = {
-          model = "openai/gpt-6-luna";
-          variant = "high";
-          permission.task = "allow";
-        };
-        claude-opus = {
-          model = "anthropic/claude-opus-5-5";
-          variant = "high";
-          permission.task = "allow";
-        };
-        claude-sonnet = {
-          model = "anthropic/claude-sonnet-5";
-          variant = "high";
-          permission.task = "allow";
-        };
-        deepseek-pro = {
-          model = "opencode-go/deepseek-v4-pro";
-          permission.task = "allow";
-        };
-        deepseek-flash = {
-          model = "opencode-go/deepseek-v4-flash";
-          permission.task = "allow";
-        };
-        gemini-flash = {
-          model = "openrouter/google/gemini-3.8-flash";
-          variant = "high";
-          permission.task = "allow";
-        };
-        muse-spark = {
-          model = "opencode-go/muse-spark-1.3-contributor";
-          variant = "high";
-          permission.task = "allow";
-        };
+        explore.model = "opencode-go/muse-spark-1.3-contributor#high";
+        general.model = "opencode-go/muse-spark-1.3-contributor#high";
+        scout.model = "opencode-go/muse-spark-1.3-contributor#high";
       };
     };
   };
