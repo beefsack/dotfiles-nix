@@ -114,7 +114,6 @@
   programs.nix-ld.enable = true;
 
   programs.iftop.enable = true;
-  programs.iotop.enable = true;
 
   services.flatpak.enable = true;
 }

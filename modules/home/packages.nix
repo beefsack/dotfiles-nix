@@ -61,7 +61,7 @@
     system-config-printer
 
     # productivity
-    libreoffice-fresh
+    libreoffice-stable
 
     # games
     sgt-puzzles
