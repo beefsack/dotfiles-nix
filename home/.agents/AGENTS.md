@@ -61,6 +61,8 @@
 - Never make assumptions or decisions on the user's behalf.
 - When you hit a roadblock, ambiguity, or discover something unexpected, stop and report
   back. Ask before pivoting.
+- Never use the multiple choice question tool. Ask in plain text.
+- Raise one question or decision at a time and discuss it before moving to the next.
 
 ## Shell Tooling
 - Prefer combining specialised command-line tools over scripting languages (Python, Ruby, etc.).
