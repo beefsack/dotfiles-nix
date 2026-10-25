@@ -22,15 +22,15 @@ in {
   programs.opencode = {
     enable = true;
     context = agentsMd;
-    tui = {
-      theme = "dracula";
+    cli = {
+      theme.name = "dracula";
       keybinds = {
-        messages_first = "ctrl+g";
-        messages_last = "ctrl+alt+g";
-        input_line_home = "ctrl+a,home";
-        input_line_end = "ctrl+e,end";
-        input_buffer_home = "ctrl+shift+a";
-        input_buffer_end = "ctrl+shift+e";
+        "session.first" = "ctrl+g";
+        "session.last" = "ctrl+alt+g";
+        "input.line.home" = "ctrl+a,home";
+        "input.line.end" = "ctrl+e,end";
+        "input.buffer.home" = "ctrl+shift+a";
+        "input.buffer.end" = "ctrl+shift+e";
       };
     };
     settings = {
