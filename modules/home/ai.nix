@@ -37,10 +37,7 @@ in {
       default_agent = "orchestrator";
       plugins = [
         "@openchamber/opencode-claude"
-        {
-          package = "github:beefsack/auto-context-handover";
-          options.soft = 150000;
-        }
+        "github:beefsack/auto-context-handover"
       ];
       skills.urls = [
         "https://raw.githubusercontent.com/beefsack/processed-beef/main/skills/"
