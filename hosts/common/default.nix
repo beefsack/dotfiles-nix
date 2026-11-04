@@ -65,6 +65,8 @@
 
   security.polkit.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   hardware.cpu = {
     amd.updateMicrocode = true;
     intel.updateMicrocode = true;
