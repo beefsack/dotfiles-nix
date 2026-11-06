@@ -45,6 +45,11 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    heroic
+    lutris
+  ];
+
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
     "vm.vfs_cache_pressure" = 50;
