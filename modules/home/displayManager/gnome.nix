@@ -55,8 +55,8 @@ in {
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        name = "Ghostty";
-        command = "ghostty";
+        name = "Kitty";
+        command = "kitty";
         binding = "<Super>t";
       };
 

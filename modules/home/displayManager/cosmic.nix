@@ -25,7 +25,7 @@ in {
       systemActions = mkRON "map" [
         {
           key = mkRON "enum" "Terminal";
-          value = "ghostty";
+          value = "kitty";
         }
       ];
       shortcuts = [

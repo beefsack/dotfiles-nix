@@ -67,7 +67,7 @@ in {
         launch-terminal = {
           name = "Launch Terminal";
           key = "Meta+T";
-          command = "ghostty";
+          command = "kitty";
         };
       };
     };
