@@ -26,8 +26,6 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
   networking.networkmanager.enable = true;
 
   time.timeZone = "Australia/Sydney";
