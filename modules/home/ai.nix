@@ -9,25 +9,21 @@ in {
   home.file.".codex/AGENTS.md".source = agentsMd;
   home.file.".claude/rules/AGENTS.md".source = agentsMd;
   home.file.".config/crush/crush.json".source = ../../home/.config/crush/crush.json;
+  home.file.".acpx/config.json".source = ../../home/.acpx/config.json;
 
   home.packages = with pkgs; [
-    antigravity-cli
     claude-code
     codex
     crush
+    herdr
     lmstudio
     pi-coding-agent
   ];
 
+  programs.antigravity-cli.enable = true;
+
   programs.opencode = {
     enable = true;
-    # TODO: Remove once nixos-unstable includes the opencode hash fix.
-    # https://github.com/NixOS/nixpkgs/issues/583797
-    package = pkgs.opencode.overrideAttrs (old: {
-      node_modules = old.node_modules.overrideAttrs (_: {
-        outputHash = "sha256-prx9dX7kUvs/E3zopkaPk5LXh3xJAy5sZeum/W8L7cA=";
-      });
-    });
     context = agentsMd;
     cli = {
       theme.name = "dracula";
@@ -42,12 +38,17 @@ in {
     };
     settings = {
       default_agent = "orchestrator";
+      providers = {
+        google.models.gemini-4-hydrogen.body.service_tier = "flex";
+        openrouter.models."google/gemini-4-hydrogen".body.service_tier = "flex";
+      };
       plugins = [
         "@openchamber/opencode-claude"
         "github:beefsack/auto-context-handover"
       ];
       skills.urls = [
         "https://raw.githubusercontent.com/beefsack/processed-beef/main/skills/"
+        "https://raw.githubusercontent.com/beefsack/acpx-subagent/main/skills/"
       ];
       experimental.subagent_depth = 3;
       agents = {
@@ -57,19 +58,28 @@ in {
           permissions = [
             { action = "subagent"; resource = "*"; effect = "allow"; }
           ];
-          system = "Load the processed-beef skill. Use the lead agent for the lead role and the worker agent for the worker role. All agents must be spawned in the foreground.";
+          system = "Load the processed-beef skill. Use the lead agent for the lead role. Ask the user which worker agent they want to use as there may be multiple `worker-*` agents, or if they want to use an alternate mechanism for the worker such as the acpx-subagent skill.";
         };
         lead = {
           model = "openai/gpt-6.1-sol#high";
           mode = "subagent";
           permissions = [
             { action = "subagent"; resource = "*"; effect = "deny"; }
-            { action = "subagent"; resource = "worker"; effect = "allow"; }
+            { action = "subagent"; resource = "worker-*"; effect = "allow"; }
             { action = "subagent"; resource = "explore"; effect = "allow"; }
             { action = "subagent"; resource = "scout"; effect = "allow"; }
           ];
         };
-        worker = {
+        worker-google = {
+          model = "google/gemini-4-hydrogen#medium";
+          mode = "subagent";
+          permissions = [
+            { action = "subagent"; resource = "*"; effect = "deny"; }
+            { action = "subagent"; resource = "explore"; effect = "allow"; }
+            { action = "subagent"; resource = "scout"; effect = "allow"; }
+          ];
+        };
+        worker-opencode-go = {
           model = "opencode-go/muse-spark-1.3-contributor#high";
           mode = "subagent";
           permissions = [
