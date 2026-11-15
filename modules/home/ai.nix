@@ -14,7 +14,6 @@ in {
   home.file.".codex/AGENTS.md".source = agentsMd;
   home.file.".claude/rules/AGENTS.md".source = agentsMd;
   home.file.".config/crush/crush.json".source = ../../home/.config/crush/crush.json;
-  home.file.".acpx/config.json".source = ../../home/.acpx/config.json;
 
   home.packages = with pkgs; [
     claude-code
@@ -53,7 +52,6 @@ in {
       ];
       skills.urls = [
         "https://raw.githubusercontent.com/beefsack/processed-beef/main/skills/"
-        "https://raw.githubusercontent.com/beefsack/acpx-subagent/main/skills/"
       ];
       experimental.subagent_depth = 3;
       agents = {
@@ -63,7 +61,7 @@ in {
           permissions = [
             { action = "subagent"; resource = "*"; effect = "allow"; }
           ];
-          system = "Load the processed-beef skill. Use the lead agent for the lead role. Ask the user which worker agent they want to use as there may be multiple `worker-*` agents, or if they want to use an alternate mechanism for the worker such as the acpx-subagent skill.";
+          system = "Load the processed-beef skill. Use the lead agent for the lead role. Ask the user which worker agent they want to use as there may be multiple `worker-*` agents.";
         };
         lead = {
           model = "openai/gpt-6.1-sol#high";
