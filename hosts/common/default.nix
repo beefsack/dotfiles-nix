@@ -100,6 +100,7 @@
     git
     ncdu
     neovim
+    rclone
     sbctl
     wirelesstools
   ];
