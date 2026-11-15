@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   agentsMd = ../../home/.agents/AGENTS.md;
@@ -6,6 +6,11 @@ in {
   # Rules deployed to each agent's expected location
   home.file."AGENTS.md".source = agentsMd;
   home.file.".gemini/GEMINI.md".source = agentsMd;
+  home.file.".gemini/config/skills.json".text = builtins.toJSON {
+    entries = [
+      { path = "${config.home.homeDirectory}/.agents/skills"; }
+    ];
+  };
   home.file.".codex/AGENTS.md".source = agentsMd;
   home.file.".claude/rules/AGENTS.md".source = agentsMd;
   home.file.".config/crush/crush.json".source = ../../home/.config/crush/crush.json;
