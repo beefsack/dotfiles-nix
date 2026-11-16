@@ -45,6 +45,23 @@ in {
       providers = {
         google.models.gemini-4-hydrogen.body.service_tier = "flex";
         openrouter.models."google/gemini-4-hydrogen".body.service_tier = "flex";
+        commandcode.models."meta/muse-ember" = {
+          name = "Muse Ember 1.0";
+          limit = {
+            context = 1048576;
+            output = 131072;
+          };
+          capabilities = {
+            tools = true;
+            input = [ "text" "image" ];
+            output = [ "text" ];
+            reasoning = {
+              supported = true;
+              effort = [ "low" "medium" "high" "xhigh" "max" ];
+            };
+          };
+          settings.reasoningEffort = "max";
+        };
       };
       plugins = [
         "@openchamber/opencode-claude"
@@ -61,28 +78,19 @@ in {
           permissions = [
             { action = "subagent"; resource = "*"; effect = "allow"; }
           ];
-          system = "Load the processed-beef skill. Use the lead agent for the lead role. Ask the user which worker agent they want to use as there may be multiple `worker-*` agents.";
+          system = "Load the processed-beef skill. Use the lead agent for the lead role. Use the worker agent for the worker role.";
         };
         lead = {
           model = "openai/gpt-6.1-sol#high";
           mode = "subagent";
           permissions = [
             { action = "subagent"; resource = "*"; effect = "deny"; }
-            { action = "subagent"; resource = "worker-*"; effect = "allow"; }
+            { action = "subagent"; resource = "worker"; effect = "allow"; }
             { action = "subagent"; resource = "explore"; effect = "allow"; }
             { action = "subagent"; resource = "scout"; effect = "allow"; }
           ];
         };
-        worker-google = {
-          model = "google/gemini-4-hydrogen#medium";
-          mode = "subagent";
-          permissions = [
-            { action = "subagent"; resource = "*"; effect = "deny"; }
-            { action = "subagent"; resource = "explore"; effect = "allow"; }
-            { action = "subagent"; resource = "scout"; effect = "allow"; }
-          ];
-        };
-        worker-opencode-go = {
+        worker = {
           model = "opencode-go/muse-spark-1.3-contributor#high";
           mode = "subagent";
           permissions = [
