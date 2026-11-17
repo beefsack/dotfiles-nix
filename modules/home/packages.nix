@@ -22,6 +22,7 @@
     pv
     tree
     which
+    wl-clipboard
     zstd
 
     # monitoring
