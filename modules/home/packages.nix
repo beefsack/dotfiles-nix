@@ -51,6 +51,7 @@
     # programming
     cargo-cache
     gcc
+    gh
     just
     mold
     nodejs
