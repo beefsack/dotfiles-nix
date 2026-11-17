@@ -21,10 +21,36 @@ in {
     crush
     herdr
     lmstudio
-    pi-coding-agent
   ];
 
   programs.antigravity-cli.enable = true;
+
+  programs.pi-coding-agent = {
+    enable = true;
+    mutableSettings = true;
+    settings = {
+      theme = "dracula";
+      packages = [
+        "npm:pi-subagents"
+        "npm:pi-claude-bridge"
+        "npm:pi-commandcode-provider"
+        "npm:pi-provider-opencode-console"
+        "npm:pi-multi-pass"
+        "npm:pi-web-access"
+        "npm:context-mode"
+        "git:github.com/beefsack/auto-context-handover"
+        "git:github.com/beefsack/processed-beef"
+        "git:github.com/beefsack/work-bucket"
+        "git:github.com/beefsack/pi-dracula@pi-package"
+        "git:github.com/beefsack/pi-subagents-desktop-terminal"
+      ];
+      subagents.agentOverrides.worker = {
+        model = "opencode-go-console/hy4-flash-free";
+        thinking = "high";
+        tools = "inherit";
+      };
+    };
+  };
 
   programs.opencode = {
     enable = true;
