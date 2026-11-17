@@ -107,7 +107,7 @@ in {
           system = "Load the processed-beef skill. Use the lead agent for the lead role. Use the worker agent for the worker role.";
         };
         lead = {
-          model = "openai/gpt-6.1-sol#high";
+          model = "openai/gpt-6.2-sol#medium";
           mode = "subagent";
           permissions = [
             { action = "subagent"; resource = "*"; effect = "deny"; }
