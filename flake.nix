@@ -30,6 +30,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    omp = {
+      url = "github:can1357/oh-my-pi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # lanzaboote for secure boot support
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -48,6 +52,7 @@
       lanzaboote,
       plasma-manager,
       cosmic-manager,
+      omp,
       nixos-hardware,
       ...
     }:
@@ -64,6 +69,7 @@
           home-manager.sharedModules = [
             plasma-manager.homeModules.plasma-manager
             cosmic-manager.homeManagerModules.default
+            omp.homeManagerModules.default
           ];
           home-manager.extraSpecialArgs = { };
         }

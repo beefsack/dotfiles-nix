@@ -25,29 +25,26 @@ in {
 
   programs.antigravity-cli.enable = true;
 
-  programs.pi-coding-agent = {
+  home.file.".omp/agent/agents/pb-lead.md".source = ../../home/.omp/agent/agents/pb-lead.md;
+  home.file.".omp/agent/agents/pb-worker.md".source = ../../home/.omp/agent/agents/pb-worker.md;
+
+  programs.omp = {
     enable = true;
-    mutableSettings = true;
     settings = {
-      theme = "dracula";
-      packages = [
-        "npm:pi-subagents"
-        "npm:pi-claude-bridge"
-        "npm:pi-commandcode-provider"
-        "npm:pi-provider-opencode-console"
-        "npm:pi-multi-pass"
-        "npm:pi-web-access"
-        "npm:context-mode"
-        "git:github.com/beefsack/auto-context-handover"
-        "git:github.com/beefsack/processed-beef"
-        "git:github.com/beefsack/work-bucket"
-        "git:github.com/beefsack/pi-dracula@pi-package"
-        "git:github.com/beefsack/pi-subagents-desktop-terminal"
-      ];
-      subagents.agentOverrides.worker = {
-        model = "opencode-go-console/hy4-flash-free";
-        thinking = "high";
-        tools = "inherit";
+      startup.quiet = true;
+      skills.customDirectories = [ "${config.home.homeDirectory}/.agents/skills" ];
+      theme.dark = "dark-dracula";
+      symbolPreset = "unicode";
+      composer.shape = "rail";
+      statusLine.compactThinkingLevel = false;
+      spelling.autocomplete = "off";
+      setupVersion = 3;
+      modelRoles.default = "claude-bridge/claude-opus-5-5:high";
+      completion.notify = "off";
+      dev.autoqaConsent = "denied";
+      compaction = {
+        experimentalContextManagement = true;
+        thresholdTokens = 200000;
       };
     };
   };
