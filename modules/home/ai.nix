@@ -26,7 +26,8 @@ in {
   programs.antigravity-cli.enable = true;
 
   home.file.".omp/agent/agents/pb-lead.md".source = ../../home/.omp/agent/agents/pb-lead.md;
-  home.file.".omp/agent/agents/pb-worker.md".source = ../../home/.omp/agent/agents/pb-worker.md;
+  home.file.".omp/agent/agents/pb-worker-complex.md".source = ../../home/.omp/agent/agents/pb-worker-complex.md;
+  home.file.".omp/agent/agents/pb-worker-simple.md".source = ../../home/.omp/agent/agents/pb-worker-simple.md;
 
   programs.omp = {
     enable = true;
@@ -42,6 +43,7 @@ in {
       modelRoles.default = "claude-bridge/claude-opus-5-5:high";
       completion.notify = "off";
       dev.autoqaConsent = "denied";
+      task.maxConcurrency = 3;
       compaction = {
         experimentalContextManagement = true;
         thresholdTokens = 200000;
